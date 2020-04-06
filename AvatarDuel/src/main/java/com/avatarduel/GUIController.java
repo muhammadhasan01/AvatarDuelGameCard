@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -31,7 +32,16 @@ public class GUIController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        button.setText("You clicked Me!");
+    }
+    
+    
+    @FXML
+    private Text txt;
+    
+    @FXML
+    private void handleText() {
+        System.out.println("Text has been hovered");
+        // System.out.println(txt);
     }
     
     @FXML

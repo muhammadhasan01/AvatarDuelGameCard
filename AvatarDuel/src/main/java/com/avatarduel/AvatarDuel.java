@@ -25,9 +25,9 @@ public class AvatarDuel extends Application {
     CSVReader landReader = new CSVReader(landCSVFile, "\t");
     landReader.setSkipHeader(true);
     List<String[]> landRows = landReader.read();
-    for (String[] row : landRows) {
-      Land l = new Land(row[1], row[3], Element.valueOf(row[2]), row[4]);
-    }
+    landRows.forEach((row) -> {
+        Land l = new Land(row[1], row[3], row[4], Element.valueOf(row[2]));
+      });
   }
 
   @Override

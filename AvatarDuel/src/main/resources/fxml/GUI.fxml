@@ -453,7 +453,7 @@
          <children>
             <AnchorPane layoutX="8.0" layoutY="12.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="txt" layoutX="2.0" layoutY="40.0" onMouseDragEntered="#handleText" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
