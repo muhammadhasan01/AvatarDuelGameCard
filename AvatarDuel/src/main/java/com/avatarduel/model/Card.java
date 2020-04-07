@@ -43,6 +43,18 @@ public class Card {
         return this.element;
     }
     
+    public int getAttack() {
+        return -1;
+    }
+    
+    public int getDefend() {
+        return -1;
+    }
+    
+    public int getPower() {
+        return -1;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -57,5 +69,17 @@ public class Card {
     
     public void setElement(Element element) {
         this.element = element;
+    }
+    
+    public void setAttack(int x) {
+        // do nothing
+    }
+    
+    public void setDefend(int x) {
+        // do nothing
+    }
+    
+    public void setPower(int x) {
+        // do nothing
     }
 }

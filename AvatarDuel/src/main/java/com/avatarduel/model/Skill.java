@@ -36,14 +36,17 @@ public class Skill extends Card {
         this.Power = pow;
     }
     
+    @Override
     public int getAttack() {
         return this.Attack;
     }
     
+    @Override
     public int getDefend() {
         return this.Defend;
     }
     
+    @Override
     public int getPower() {
         return this.Power;
     }
@@ -52,7 +55,11 @@ public class Skill extends Card {
         this.Attack = atk;
     }
     
-    public void setDeffend(int def) {
+    /**
+     *
+     * @param def
+     */
+    public void setDefend(int def) {
         this.Defend = def;
     }
     

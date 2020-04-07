@@ -26,26 +26,32 @@ public class Character extends Card {
         this.Power = pow;
     }
     
+    @Override
     public int getAttack() {
         return this.Attack;
     }
     
+    @Override
     public int getDefend() {
         return this.Defend;
     }
     
+    @Override
     public int getPower() {
         return this.Power;
     }
     
+    @Override
     public void setAttack(int atk) {
         this.Attack = atk;
     }
     
-    public void setDeffend(int def) {
+    @Override
+    public void setDefend(int def) {
         this.Defend = def;
     }
     
+    @Override
     public void setPower(int pow) {
         this.Power = pow;
     }
