@@ -9,7 +9,7 @@ package com.avatarduel.model;
  *
  * @author Muhammad Hasan - 13518012
  */
-public abstract class Card {
+public class Card {
     protected String name;
     protected String description;
     protected String imagePath;

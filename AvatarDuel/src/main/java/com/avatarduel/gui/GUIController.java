@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.avatarduel;
+package com.avatarduel.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 /**
@@ -34,6 +35,23 @@ public class GUIController implements Initializable {
         System.out.println("You clicked me!");
     }
     
+    @FXML
+    private ImageView cardImage;
+    
+    @FXML
+    private void handleImage() {
+        System.out.println("Image has been changed");
+        Image image = new Image(getClass().getResourceAsStream("/com/avatarduel/card/image/character/Aang.png"));
+        cardImage.setImage(image);
+    }
+    
+    @FXML
+    private Text cardDescription;
+    
+    @FXML
+    private void handleCardDescription() {
+        System.out.println("ya gmn ya");
+    }
     
     @FXML
     private Text txt;
