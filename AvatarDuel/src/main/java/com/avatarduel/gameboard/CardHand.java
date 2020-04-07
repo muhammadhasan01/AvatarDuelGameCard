@@ -19,4 +19,8 @@ public class CardHand extends CardBoard {
     CardHand(Card card, boolean isOccupied, boolean canHover) {
         super(card, isOccupied, canHover);
     }
+    
+    public void resetCardHand() {
+        super.resetCardBoard();
+    }
 }

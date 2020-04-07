@@ -51,4 +51,10 @@ public class CardBoard {
     public void flipCanHover() {
         this.canHover = !(this.canHover);
     }  
+    
+    public void resetCardBoard() {
+        this.card.resetCard();
+        this.isOccupied = false;
+        this.canHover = true;
+    }
 }

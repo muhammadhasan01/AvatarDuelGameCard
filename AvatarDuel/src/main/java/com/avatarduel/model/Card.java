@@ -10,6 +10,9 @@ package com.avatarduel.model;
  * @author Muhammad Hasan - 13518012
  */
 public class Card {
+    
+    private final int undefinedReturnValue = -13518012;
+    
     protected String name;
     protected String description;
     protected String imagePath;
@@ -44,15 +47,15 @@ public class Card {
     }
     
     public int getAttack() {
-        return -1;
+        return undefinedReturnValue;
     }
     
     public int getDefend() {
-        return -1;
+        return undefinedReturnValue;
     }
     
     public int getPower() {
-        return -1;
+        return undefinedReturnValue;
     }
     
     public void setName(String name) {
@@ -81,5 +84,10 @@ public class Card {
     
     public void setPower(int x) {
         // do nothing
+    }
+    
+    public void resetCard() {
+        this.name = this.description = this.imagePath = "";
+        this.element = Element.AIR;
     }
 }
