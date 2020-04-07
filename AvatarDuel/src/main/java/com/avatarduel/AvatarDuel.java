@@ -8,7 +8,6 @@ import com.avatarduel.model.Character;
 import com.avatarduel.model.Land;
 import com.avatarduel.model.Skill;
 import com.avatarduel.player.Player;
-import java.util.ArrayList;
 import java.util.List;
 
 import javafx.application.Application;
@@ -39,6 +38,9 @@ public class AvatarDuel extends Application {
     List<Character> CC = characterCards.getListCharacter();
     List<Land> LL = landCards.getListLand();
     List<Skill> SS = skillCards.getListSkill();
+    
+    Card x = CC.get(0);
+    System.out.println(x.getAttack());
     
     for (int i = 0; i < numberOfPlayers; i++) {
         players[i] = new Player();

@@ -18,7 +18,7 @@
    <children>
       <AnchorPane layoutX="14.0" layoutY="69.0" prefHeight="433.0" prefWidth="313.0" style="-fx-background-color: #cc9900;">
          <children>
-            <ImageView fx:id="cardImage" fitHeight="239.0" fitWidth="278.0" layoutX="15.0" layoutY="63.0" onMouseClicked="#handleImage" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="239.0" fitWidth="278.0" layoutX="15.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../com/avatarduel/images/AvatarDuel.png" />
                </image>
@@ -30,16 +30,16 @@
             </Text>
             <TextFlow layoutX="15.0" layoutY="349.0" prefHeight="107.0" prefWidth="278.0">
                <children>
-                  <Text fx:id="cardDescription" onMouseClicked="#handleCardDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="CardDescription" wrappingWidth="267.205078125">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is the game of Avatar The Last Airbender Card" wrappingWidth="279.8818359375">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Text>
                </children>
             </TextFlow>
-            <TextFlow layoutX="15.0" layoutY="24.0" prefHeight="27.0" prefWidth="159.0">
+            <TextFlow layoutX="15.0" layoutY="24.0" prefHeight="44.0" prefWidth="217.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CardName">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The Last Airbender" wrappingWidth="172.73974609375">
                      <font>
                         <Font name="Arial Bold" size="19.0" />
                      </font>
@@ -84,22 +84,29 @@
                   <Image url="@../com/avatarduel/images/AirElement.png" />
                </image>
             </ImageView>
-            <Text layoutX="60.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
-            <Text layoutX="60.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
-            <Text layoutX="60.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
-            <Text layoutX="60.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
+            <Text layoutX="60.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text layoutX="60.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text layoutX="60.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text layoutX="60.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="348.0" layoutY="351.0" prefHeight="182.0" prefWidth="786.0" style="-fx-background-color: #cc9900;">
          <children>
             <AnchorPane layoutX="6.0" layoutY="14.0" prefHeight="69.0" prefWidth="84.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="81.67578125">
-                     <font>
-                        <Font name="Arial Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <Text layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(ATTACK)" textAlignment="CENTER" wrappingWidth="81.67578125">
+                  <Text layoutX="2.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER (ATTACK)" textAlignment="CENTER" wrappingWidth="81.67578125">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
@@ -117,12 +124,7 @@
             </AnchorPane>
             <AnchorPane layoutX="101.0" layoutY="14.0" prefHeight="69.0" prefWidth="84.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="81.67578125">
-                     <font>
-                        <Font name="Arial Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <Text layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(DEFENSE)" textAlignment="CENTER" wrappingWidth="81.67578125">
+                  <Text layoutX="2.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER (DEFEND)" textAlignment="CENTER" wrappingWidth="81.67578125">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
@@ -362,10 +364,22 @@
                   <Image url="@../com/avatarduel/images/AirElement.png" />
                </image>
             </ImageView>
-            <Text layoutX="60.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
-            <Text layoutX="60.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
-            <Text layoutX="60.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
-            <Text layoutX="60.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0" />
+            <Text layoutX="60.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text layoutX="60.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text layoutX="60.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
+            <Text layoutX="60.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0/0">
+               <font>
+                  <Font size="20.0" />
+               </font></Text>
          </children>
       </AnchorPane>
       <Text fill="WHITE" layoutX="20.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PLAYER 1">
@@ -547,7 +561,7 @@
          <children>
             <AnchorPane layoutX="6.0" layoutY="14.0" prefHeight="69.0" prefWidth="84.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="81.67578125">
+                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILL" textAlignment="CENTER" wrappingWidth="81.67578125">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
@@ -556,7 +570,7 @@
             </AnchorPane>
             <AnchorPane layoutX="6.0" layoutY="99.0" prefHeight="69.0" prefWidth="84.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILL" textAlignment="CENTER" wrappingWidth="81.67578125">
+                  <Text layoutX="2.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="81.67578125">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
@@ -692,7 +706,7 @@
          </children>
       </AnchorPane>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="txt" fill="WHITE" layoutX="20.0" layoutY="582.0" onMouseClicked="#handleText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fill="WHITE" layoutX="20.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:">
          <font>
             <Font name="Arial" size="18.0" />
          </font>

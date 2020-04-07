@@ -10,8 +10,10 @@ import com.avatarduel.model.Land;
 import com.avatarduel.model.Character;
 import com.avatarduel.model.Skill;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import javafx.util.Pair;
 
 /**
  *
@@ -22,21 +24,21 @@ public class Player {
     private final int deckMax = 60;
     
     private int health;
-    private int powerAir;
-    private int powerWater;
-    private int powerFire;
-    private int powerEarth;
+    private Pair<Integer, Integer> powerAir;
+    private Pair<Integer, Integer> powerWater;
+    private Pair<Integer, Integer> powerFire;
+    private Pair<Integer, Integer> powerEarth;
     private boolean turn;
     private List<Card> deck;
     
     public Player() {
         this.health = healthMax;
-        this.powerAir = this.powerEarth = this.powerFire = this.powerEarth = 0;
+        this.powerAir = this.powerEarth = this.powerFire = this.powerEarth = new Pair<Integer, Integer>(0, 0);
         this.turn = false;
         this.deck = new ArrayList<>();
     }
     
-    public Player(int h, int a, int w, int f, int e, boolean t) {
+    public Player(int h, Pair<Integer, Integer> a, Pair<Integer, Integer> w, Pair<Integer, Integer> f, Pair<Integer, Integer> e, boolean t) {
         this.health = h;
         this.powerAir = a;
         this.powerWater = w;
@@ -63,25 +65,26 @@ public class Player {
         for (int i = 0; i < 2 * (deckMax / 5); i++) {
             addCard(LL.get(rand.nextInt(LL.size())));
         }
+        Collections.shuffle(this.deck);
     }
     
     public int getHealth() {
         return this.health;
     }
     
-    public int getPowerAir() {
+    public Pair<Integer, Integer> getPowerAir() {
         return this.powerAir;
     }
     
-    public int getPowerWater() {
+    public Pair<Integer, Integer> getPowerWater() {
         return this.powerWater;
     }
     
-    public int getPowerFire() {
+    public Pair<Integer, Integer> getPowerFire() {
         return this.powerFire;
     }
     
-    public int getPowerEarth() {
+    public Pair<Integer, Integer> getPowerEarth() {
         return this.powerEarth;
     }
     
@@ -97,19 +100,19 @@ public class Player {
         this.health = h;
     }
     
-    public void setPowerAir(int a) {
+    public void setPowerAir(Pair<Integer, Integer> a) {
         this.powerAir = a;
     }
     
-    public void setPowerWater(int w) {
+    public void setPowerWater(Pair<Integer, Integer> w) {
         this.powerWater = w;
     }
     
-    public void setPowerFire(int f) {
+    public void setPowerFire(Pair<Integer, Integer> f) {
         this.powerFire = f;
     }
     
-    public void setPowerEarth(int e) {
+    public void setPowerEarth(Pair<Integer, Integer> e) {
         this.powerEarth = e;
     }
     
