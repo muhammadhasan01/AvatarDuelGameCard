@@ -34,68 +34,30 @@ import javafx.scene.text.Text;
  * @author USER
  */
 public class GUIController implements Initializable {
-    private final String pathElementAir = "/com/avatarduel/images/AirElement.png";
-    private final String pathElementWater = "/com/avatarduel/images/WaterElement.png";
-    private final String pathElementFire = "/com/avatarduel/images/FireElement.png";
-    private final String pathElementEarth = "/com/avatarduel/images/EarthElement.png";
-    
     private final int numOfPlayer = 2; 
-    private final int undefinedReturnValue = -13518012;
     
     private GamePlay[] player;
+    
     private Card selectedCard;
     
-    /* Declaration Controllers of Card Loader */
     @FXML
+    
+    /* Declaration Controllers of Card Loader */
     private Text cardDescription;
     private Text cardAttribute;
     private ImageView cardImage;
     private ImageView cardElement;
     
-    /* Methods for Card Description */
-    private void setCardDescription(String desc) {
-        System.out.println("Card Description");
-        cardDescription.setText(desc);
-    }
+    /* Declaration for GamePhase */
+    private Text drawPhase;
+    private Text main1Phase;
+    private Text battlePhase;
+    private Text main2Phase;
+    private Text endPhase;
     
-    private void setCardAttribute(int atk, int def, int power) {
-        if (atk == undefinedReturnValue) {
-            cardAttribute.setText("");
-            return;
-        }
-        System.out.println("Card Attribute");
-        String attribute = "ATK : " + String.valueOf(atk);
-        attribute += "/DEF : " + String.valueOf(def);
-        attribute += "/POW : " + String.valueOf(power);
-        cardAttribute.setText(attribute);
-    }
-    
-    private void setCardImage(String pathImage) {
-        System.out.println("Card Image");
-        Image image = new Image(getClass().getResourceAsStream(pathImage));
-        cardImage.setImage(image);
-    }
-    
-    private void setCardElement(Element element) {
-        System.out.println("Card Element");
-        Image image = null;
-        switch (element) {
-            case AIR:
-                image = new Image(getClass().getResourceAsStream(pathElementAir));
-                break;
-            case WATER:
-                image = new Image(getClass().getResourceAsStream(pathElementWater));
-                break;
-            case EARTH:
-                image = new Image(getClass().getResourceAsStream(pathElementEarth));
-                break;
-            case FIRE:
-                image = new Image(getClass().getResourceAsStream(pathElementFire));
-                break;
-            default:
-                break;
-        }
-        cardElement.setImage(image);
+    /* Methods for Phases */
+    private void flipPhase(Text phase) {
+        phase.setUnderline(!phase.isUnderline());
     }
     
     /* Declaration for Status Gameplay */
@@ -115,25 +77,57 @@ public class GUIController implements Initializable {
         System.out.println("Button End Turn");
     }
     
-    /* Declaration Controller for Player One */
+    /* Declaration Controllers and Methods for Player One */
     private Text playerOneHP;
+    
     private Text cardInHandPlayerOne_1;
+    private void handleHoverCardInHandPlayerOne_1() {
+        
+    }
+    private void handleClickCardInHandPlayerOne_1() {
+        
+    }
+    /* jobdesc 1 - isi dengan
+    *  private Text CardInHandPlayerOne_X (X-nya dari 2 ampe 10)
+    *  private void handleHoverCard
+    */
     
     private Text cardAttackFieldPlayerOne_1;
+    /* jobdesc 2 - isi dengan
+    *  private Text CardAttackFieldPlayerOne_X (X-nya dari 2 ampe 8)
+    */
     
     private Text cardStatusFieldPlayerOne_1;
+    /* jobdesc 3 - Isi dengan
+    *  private Text CardStatusFieldPlayerOne_X (X-nya dari 2 ampe 8)
+    */
     
     private Text powerElementAirPlayerOne;
+    /* jobdesc 4 - Isi dengan
+    *  private Text powerElement<Water/Fire/Earth>playerOne (isi semua elemen)
+    */
     
     /* Declaration Controller for Player Two */
     private Text playerTwoHP;
     private Text cardInHandPlayerTwo_1;
+    /* jobdesc 1 - isi dengan
+    *  private Text CardInHandPlayerTwo_X (X-nya dari 2 ampe 10)
+    */
     
     private Text cardAttackFieldPlayerTwo_1;
+    /* jobdesc 2 - isi dengan
+    *  private Text CardAttackFieldPlayerTwo_X (X-nya dari 2 ampe 8)
+    */
     
     private Text cardStatusFieldPlayerTwo_1;
+    /* jobdesc 3 - isi dengan
+    *  private Text CardStatusFieldPlayerTwo_X (X-nya dari 2 ampe 8)
+    */
     
     private Text powerElementAirPlayerTwo;
+    /* jobdesc 4 - isi dengan
+    *  private Text powerElement<Water/Fire/Earth>playerTwo (isi semua elemen)
+    */
     
     /* Methods Controller for Player One */
     private void setPlayerOneHP(String hp) {
@@ -141,38 +135,36 @@ public class GUIController implements Initializable {
         playerOneHP.setText(hp);
     }
     
+    
     /* Methods Controller for Player Two */
     private void setPlayerTwoHP(String hp) {
         hp = hp + "/80";
         playerTwoHP.setText(hp);
     }
     
+    /* Method Controller for hover and click */
+    private void handleHover() {
+        
+    }
+    
+    private void handleClick() {
+        
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            System.out.println("Initializing");
-            
-            selectedCard = new Card();
-            
-            LandCards landCards = new LandCards();
-            CharacterCards characterCards = new CharacterCards();
-            SkillCards skillCards = new SkillCards();
-            
-            characterCards.loadCards();
-            landCards.loadCards();
-            skillCards.loadCards();
-            
-            List<Character> CC = characterCards.getListCharacter();
-            List<Land> LL = landCards.getListLand();
-            List<Skill> SS = skillCards.getListSkill();
-            
-            player = new GamePlay[numOfPlayer];
-            for (int i = 0; i < numOfPlayer; i++) {
+        System.out.println("Initializing");
+
+        selectedCard = new Card();
+
+        player = new GamePlay[numOfPlayer];
+        for (int i = 0; i < numOfPlayer; i++) {
+            try {
                 player[i] = new GamePlay();
-                player[i].buildDeck(CC, SS, LL);
+                player[i].buildDeck();
+            } catch (IOException ex) {
+                Logger.getLogger(GUIController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (IOException | URISyntaxException ex) {
-            Logger.getLogger(GUIController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

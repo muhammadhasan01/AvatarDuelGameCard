@@ -6,6 +6,7 @@
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -25,8 +26,8 @@ public class CardSkillField extends CardBoard {
      * @param canHover
      * @param cardAttached
      */
-    public CardSkillField(Card card, boolean isOccupied, boolean canHover, Card cardAttached) {
-        super(card, isOccupied, canHover);
+    public CardSkillField(Card card, boolean isOccupied, boolean canHover, Text text, Card cardAttached) {
+        super(card, isOccupied, canHover, text);
         this.cardAttached = cardAttached;
     }
     

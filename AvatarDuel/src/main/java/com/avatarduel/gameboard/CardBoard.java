@@ -6,6 +6,7 @@
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -15,17 +16,20 @@ public class CardBoard {
     private Card card;
     private boolean isOccupied;
     private boolean canHover;
+    private Text text;
     
-    CardBoard() {
+    public CardBoard() {
         this.card = new Card();
         this.isOccupied = false;
         this.canHover = true;
+        this.text = new Text();
     }
     
-    CardBoard(Card card, boolean isOccupied, boolean canHover) {
+    public CardBoard(Card card, boolean isOccupied, boolean canHover, Text text) {
         this.card = new Card();
         this.isOccupied = isOccupied;
         this.canHover = canHover;
+        this.text = text;
     }
     
     public Card getCard() {
@@ -38,6 +42,10 @@ public class CardBoard {
     
     public boolean getCanHover() {
         return this.canHover;
+    }
+    
+    public Text getText() {
+        return this.text;
     }
     
     public void setCard(Card card) {
@@ -56,5 +64,13 @@ public class CardBoard {
         this.card.resetCard();
         this.isOccupied = false;
         this.canHover = true;
+    }
+    
+    public void setTextTo(String text) {
+        this.text.setText(text);
+    }
+    
+    public void flipUnderLine() {
+        this.text.setUnderline(!this.text.isUnderline());
     }
 }

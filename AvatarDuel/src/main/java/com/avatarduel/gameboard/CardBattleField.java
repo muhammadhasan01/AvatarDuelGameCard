@@ -6,10 +6,11 @@
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
+import javafx.scene.text.Text;
 
 /**
  *
- * @author Muhammad Hasan
+ * @author Muhammad Hasan - 13518012
  */
 public class CardBattleField extends CardBoard {
     private boolean isAttacking;
@@ -23,8 +24,8 @@ public class CardBattleField extends CardBoard {
         this.isDead = false;
     }
     
-    CardBattleField(Card card, boolean isOccupied, boolean canHover, boolean isAttacking, boolean isAttacked, boolean isDead) {
-        super(card, isOccupied, canHover);
+    CardBattleField(Card card, boolean isOccupied, boolean canHover, Text text, boolean isAttacking, boolean isAttacked, boolean isDead) {
+        super(card, isOccupied, canHover, text);
         this.isAttacking = isAttacking;
         this.isAttacked = isAttacked;
         this.isDead = isDead;

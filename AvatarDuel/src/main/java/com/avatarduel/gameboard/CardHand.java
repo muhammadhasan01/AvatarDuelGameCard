@@ -6,6 +6,7 @@
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -16,8 +17,8 @@ public class CardHand extends CardBoard {
         super();
     }
     
-    CardHand(Card card, boolean isOccupied, boolean canHover) {
-        super(card, isOccupied, canHover);
+    CardHand(Card card, boolean isOccupied, boolean canHover, Text text) {
+        super(card, isOccupied, canHover, text);
     }
     
     public void resetCardHand() {

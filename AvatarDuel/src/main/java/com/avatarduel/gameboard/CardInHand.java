@@ -6,6 +6,9 @@
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
+import com.avatarduel.model.Land;
+import com.avatarduel.model.Skill;
+import com.avatarduel.model.Character;
 import java.io.IOException;
 
 /**
@@ -46,5 +49,29 @@ public class CardInHand {
            throw new IOException("Index card in battle field out of bound");
         
         cardInHand[pos].resetCardHand();
+    }
+    
+    public void closeCards() {
+        for (int i = 0; i < maxCardInHand; i++) {
+            this.cardInHand[i].flipCanHover();
+            this.cardInHand[i].setTextTo("");
+        }
+    }
+    
+    public void updateCardInHand() {
+        for (int i = 0; i < maxCardInHand; i++) {
+            Card card = this.cardInHand[i].getCard();
+            if (this.cardInHand[i].getIsOccupied()) {
+                if (card instanceof Land) {
+                    this.cardInHand[i].setTextTo("Land");
+                } else if (card instanceof Skill) {
+                    this.cardInHand[i].setTextTo("Skill");
+                } else if (card instanceof Character) {
+                    this.cardInHand[i].setTextTo("Character");
+                }
+            } else {
+                this.cardInHand[i].setTextTo("");
+            }
+        }
     }
 }

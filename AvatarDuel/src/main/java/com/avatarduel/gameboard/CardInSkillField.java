@@ -50,4 +50,14 @@ public class CardInSkillField {
         
         cardInSkillField[pos].resetCardSkillField();
     }    
+    
+    public void updateCardInSkillField() {
+        for (int i = 0; i < maxCardInSkillField; i++) {
+            if (cardInSkillField[i].getIsOccupied()) {
+                cardInSkillField[i].setTextTo("Status");
+            } else {
+                cardInSkillField[i].setTextTo("");
+            }
+        }
+    }
 }

@@ -47,4 +47,15 @@ public class CardInBattleField {
         
         cardInBattleField[pos].resetCardBattleField();
     }
+    
+    public void updateCardInBattleField() {
+        for (int i = 0; i < maxCardInBattleField; i++) {
+            if (cardInBattleField[i].getIsOccupied()) {
+                String position = (cardInBattleField[i].getIsAttacking() ? "(ATTACK)" : "(DEFENSE)");
+                cardInBattleField[i].setTextTo("CHARACTER " + position);
+            } else {
+                cardInBattleField[i].setTextTo("");
+            }
+        }
+    }
 }
