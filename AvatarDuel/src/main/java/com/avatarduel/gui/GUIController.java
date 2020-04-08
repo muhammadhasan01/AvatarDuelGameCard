@@ -81,6 +81,16 @@ public class GUIController implements Initializable {
     private Text playerOneHP;
     
     private Text cardInHandPlayerOne_1;
+    private Text cardInHandPlayerOne_2;
+    private Text cardInHandPlayerOne_3;
+    private Text cardInHandPlayerOne_4;
+    private Text cardInHandPlayerOne_5;
+    private Text cardInHandPlayerOne_6;
+    private Text cardInHandPlayerOne_7;
+    private Text cardInHandPlayerOne_8;
+    private Text cardInHandPlayerOne_9;
+    private Text cardInHandPlayerOne_10;
+    
     private void handleHoverCardInHandPlayerOne_1() {
         
     }
@@ -93,16 +103,36 @@ public class GUIController implements Initializable {
     */
     
     private Text cardAttackFieldPlayerOne_1;
+    private Text cardAttackFieldPlayerOne_2;
+    private Text cardAttackFieldPlayerOne_3;
+    private Text cardAttackFieldPlayerOne_4;
+    private Text cardAttackFieldPlayerOne_5;
+    private Text cardAttackFieldPlayerOne_6;
+    private Text cardAttackFieldPlayerOne_7;
+    private Text cardAttackFieldPlayerOne_8;
+
+
     /* jobdesc 2 - isi dengan
     *  private Text CardAttackFieldPlayerOne_X (X-nya dari 2 ampe 8)
     */
     
     private Text cardStatusFieldPlayerOne_1;
+    private Text cardStatusFieldPlayerOne_2;
+    private Text cardStatusFieldPlayerOne_3;
+    private Text cardStatusFieldPlayerOne_4;
+    private Text cardStatusFieldPlayerOne_5;
+    private Text cardStatusFieldPlayerOne_6;
+    private Text cardStatusFieldPlayerOne_7;
+    private Text cardStatusFieldPlayerOne_8;
+
     /* jobdesc 3 - Isi dengan
     *  private Text CardStatusFieldPlayerOne_X (X-nya dari 2 ampe 8)
     */
     
     private Text powerElementAirPlayerOne;
+    private Text powerElementWaterPlayerOne;
+    private Text powerElementFirePlayerOne;
+    private Text powerElementEarthPlayerOne;
     /* jobdesc 4 - Isi dengan
     *  private Text powerElement<Water/Fire/Earth>playerOne (isi semua elemen)
     */
