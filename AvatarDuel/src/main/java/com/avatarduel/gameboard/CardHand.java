@@ -13,11 +13,11 @@ import javafx.scene.text.Text;
  * @author USER
  */
 public class CardHand extends CardBoard {
-    CardHand() {
+    public CardHand() {
         super();
     }
     
-    CardHand(Card card, boolean isOccupied, boolean canHover, Text text) {
+    public CardHand(Card card, boolean isOccupied, boolean canHover, Text text) {
         super(card, isOccupied, canHover, text);
     }
     

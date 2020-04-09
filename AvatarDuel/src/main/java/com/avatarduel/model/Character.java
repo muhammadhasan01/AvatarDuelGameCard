@@ -26,6 +26,13 @@ public class Character extends Card {
         this.Power = pow;
     }
     
+    public Character(Character CC) {
+        super(CC);
+        this.Attack = CC.getAttack();
+        this.Defend = CC.getDefend();
+        this.Power = CC.getPower();
+    }
+    
     @Override
     public int getAttack() {
         return this.Attack;

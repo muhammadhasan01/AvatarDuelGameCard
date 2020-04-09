@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import javafx.scene.text.Text;
 import javafx.util.Pair;
 
 /**
@@ -24,18 +25,22 @@ public class Player {
     private final int deckMax = 60;
     
     private int health;
+    private Text healthText;
     private Pair<Integer, Integer> powerAir;
     private Pair<Integer, Integer> powerWater;
     private Pair<Integer, Integer> powerFire;
     private Pair<Integer, Integer> powerEarth;
     private boolean turn;
     private List<Card> deck;
+    private Text deckText;
     
     public Player() {
         this.health = healthMax;
+        healthText = new Text();
         this.powerAir = this.powerEarth = this.powerFire = this.powerEarth = new Pair<Integer, Integer>(0, 0);
         this.turn = false;
         this.deck = new ArrayList<>();
+        this.deckText = new Text();
     }
     
     public Player(int h, Pair<Integer, Integer> a, Pair<Integer, Integer> w, Pair<Integer, Integer> f, Pair<Integer, Integer> e, boolean t) {
@@ -57,13 +62,13 @@ public class Player {
     public void buildDeck(List<Character> CC, List<Skill> SS, List<Land> LL) {
         Random rand = new Random();
         for (int i = 0; i < 2 * (deckMax / 5); i++) {
-            addCard(CC.get(rand.nextInt(CC.size())));
+            addCard(new Character(CC.get(rand.nextInt(CC.size()))));
         }
         for (int i = 0; i < (deckMax / 5); i++) {
-            addCard(SS.get(rand.nextInt(SS.size())));
+            addCard(new Skill(SS.get(rand.nextInt(SS.size()))));
         }
         for (int i = 0; i < 2 * (deckMax / 5); i++) {
-            addCard(LL.get(rand.nextInt(LL.size())));
+            addCard(new Land(LL.get(rand.nextInt(LL.size()))));
         }
         Collections.shuffle(this.deck);
     }
@@ -88,12 +93,20 @@ public class Player {
         return this.powerEarth;
     }
     
+    public Text getDeckText() {
+        return this.deckText;
+    }
+    
     public boolean getTurn() {
         return this.turn;
     }
     
     public List<Card> getDeck() {
         return this.deck;
+    }
+    
+    public Text getHealthText() {
+        return this.healthText;
     }
     
     public void setHealth(int h) {
@@ -122,5 +135,21 @@ public class Player {
     
     public void addCard(Card CC) {
         this.deck.add(CC);
+    }
+    
+    public void setHealthText(Text text) {
+        this.healthText = text;
+    } 
+    
+    public void setHealthTextTo(String text) {
+        this.healthText.setText(text);
+    }
+    
+    public void setDeckText(Text text) {
+        this.deckText = text;
+    }
+    
+    public void setDeckTextTo(int num) {
+        this.deckText.setText(String.valueOf(num) + "/60");
     }
 }

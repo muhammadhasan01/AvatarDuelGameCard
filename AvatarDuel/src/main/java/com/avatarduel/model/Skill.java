@@ -18,6 +18,13 @@ public class Skill extends Card {
         super();
         this.Attack = this.Defend = this.Power = 0;
     }
+    
+    public Skill(Skill SS) {
+        super(SS);
+        this.Attack = SS.getAttack();
+        this.Defend = SS.getDefend();
+        this.Power = SS.getPower();
+    }
 
     /**
      *

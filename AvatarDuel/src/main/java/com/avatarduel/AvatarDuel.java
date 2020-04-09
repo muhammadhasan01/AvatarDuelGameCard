@@ -1,14 +1,5 @@
 package com.avatarduel;
 
-import com.avatarduel.cards.CharacterCards;
-import com.avatarduel.cards.LandCards;
-import com.avatarduel.cards.SkillCards;
-import com.avatarduel.model.Card;
-import com.avatarduel.model.Character;
-import com.avatarduel.model.Land;
-import com.avatarduel.model.Skill;
-import com.avatarduel.player.Player;
-import java.util.List;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

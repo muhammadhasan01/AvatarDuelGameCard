@@ -64,6 +64,11 @@ public class CardBoard {
         this.card.resetCard();
         this.isOccupied = false;
         this.canHover = true;
+        this.text.setText("");
+    }
+    
+    public void setRefText(Text text) {
+        this.text = text;
     }
     
     public void setTextTo(String text) {

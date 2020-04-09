@@ -6,6 +6,8 @@
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.text.Text;
 
 /**
@@ -16,15 +18,17 @@ public class CardBattleField extends CardBoard {
     private boolean isAttacking;
     private boolean isAttacked;
     private boolean isDead;
+    private List<CardSkillField> cardAttached;
     
     public CardBattleField() {
         super();
         this.isAttacking = true;
         this.isAttacked = false;
         this.isDead = false;
+        this.cardAttached = new ArrayList<>();
     }
     
-    CardBattleField(Card card, boolean isOccupied, boolean canHover, Text text, boolean isAttacking, boolean isAttacked, boolean isDead) {
+    public CardBattleField(Card card, boolean isOccupied, boolean canHover, Text text, boolean isAttacking, boolean isAttacked, boolean isDead) {
         super(card, isOccupied, canHover, text);
         this.isAttacking = isAttacking;
         this.isAttacked = isAttacked;
@@ -41,6 +45,10 @@ public class CardBattleField extends CardBoard {
     
     public boolean getIsDead() {
         return this.isDead;
+    }
+    
+    public List<CardSkillField> getCardAttached() {
+        return this.cardAttached;
     }
     
     public void flipIsAttacking() {
@@ -60,5 +68,14 @@ public class CardBattleField extends CardBoard {
         this.isAttacking = true;
         this.isAttacked = false;
         this.isDead = false;
+    }
+    
+    public void addCardAttached(CardSkillField CC) {
+        Card card = this.getCard();
+        Card skill = this.getCard();
+        card.setAttack(card.getAttack() + skill.getAttack());
+        card.setDefend(card.getDefend() + skill.getDefend());
+        card.setPower(card.getPower() + skill.getPower());
+        this.cardAttached.add(CC);
     }
 }

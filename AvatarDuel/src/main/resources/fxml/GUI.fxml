@@ -16,46 +16,46 @@
         <URL value="@/styles/gui.css" />
     </stylesheets>
    <children>
-      <AnchorPane layoutX="14.0" layoutY="69.0" prefHeight="433.0" prefWidth="313.0" style="-fx-background-color: #cc9900;">
+      <AnchorPane layoutX="14.0" layoutY="69.0" prefHeight="472.0" prefWidth="313.0" style="-fx-background-color: #cc9900;">
          <children>
-            <ImageView fitHeight="239.0" fitWidth="278.0" layoutX="15.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="cardImage" fitHeight="239.0" fitWidth="278.0" layoutX="15.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../com/avatarduel/images/AvatarDuel.png" />
                </image>
             </ImageView>
             <Text layoutX="15.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <TextFlow layoutX="15.0" layoutY="349.0" prefHeight="107.0" prefWidth="278.0">
+            <TextFlow layoutX="15.0" layoutY="349.0" prefHeight="77.0" prefWidth="278.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="This is the game of Avatar The Last Airbender Card" wrappingWidth="279.8818359375">
+                  <Text fx:id="cardDescription" strokeType="OUTSIDE" strokeWidth="0.0" text="This is the game of Avatar : The Last Airbender. Avatar Duel GameCard" wrappingWidth="279.8818359375">
                      <font>
-                        <Font name="Arial" size="14.0" />
+                        <Font name="Arial" size="16.0" />
                      </font>
                   </Text>
                </children>
             </TextFlow>
             <TextFlow layoutX="15.0" layoutY="24.0" prefHeight="44.0" prefWidth="217.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The Last Airbender" wrappingWidth="172.73974609375">
+                  <Text fx:id="cardName" strokeType="OUTSIDE" strokeWidth="0.0" text="The Last Airbender" wrappingWidth="172.73974609375">
                      <font>
-                        <Font name="Arial Bold" size="19.0" />
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
                </children>
             </TextFlow>
-            <TextFlow layoutX="12.0" layoutY="456.0" prefHeight="22.0" prefWidth="285.0">
+            <TextFlow layoutX="14.0" layoutY="447.0" prefHeight="22.0" prefWidth="285.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CardAttribute">
+                  <Text fx:id="cardAttribute" strokeType="OUTSIDE" strokeWidth="0.0" text="CardAttribute">
                      <font>
-                        <Font name="Arial Bold" size="15.0" />
+                        <Font name="Arial Bold" size="17.0" />
                      </font>
                   </Text>
                </children>
             </TextFlow>
-            <ImageView fitHeight="39.0" fitWidth="44.0" layoutX="247.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="cardElement" fitHeight="44.0" fitWidth="51.0" layoutX="249.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../com/avatarduel/images/FireElement.png" />
                </image>
@@ -253,7 +253,7 @@
          <children>
             <AnchorPane layoutX="8.0" layoutY="12.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_1" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_1" onMouseEntered="#handleHoverCardInHandPlayerOne_1" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -392,32 +392,32 @@
             <Font name="Arial" size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="171.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80/80">
+      <Text fx:id="playerOneHP" fill="WHITE" layoutX="171.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80/80">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="562.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DRAW">
+      <Text fx:id="drawPhase" fill="WHITE" layoutX="562.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DRAW">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="631.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN 1">
+      <Text fx:id="main1Phase" fill="WHITE" layoutX="631.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN 1">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="709.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BATTLE">
+      <Text fx:id="battlePhase" fill="WHITE" layoutX="709.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BATTLE">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="786.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN 2">
+      <Text fx:id="main2Phase" fill="WHITE" layoutX="786.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIN 2">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="872.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="END">
+      <Text fx:id="endPhase" fill="WHITE" layoutX="872.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="END">
          <font>
             <Font size="20.0" />
          </font>
@@ -429,7 +429,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="24.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60/60">
+            <Text fx:id="playerOneDeck" layoutX="24.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60/60">
                <font>
                   <Font size="20.0" />
                </font></Text>
@@ -442,7 +442,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="24.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60/60">
+            <Text fx:id="playerTwoDeck" layoutX="24.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="60/60">
                <font>
                   <Font size="20.0" />
                </font></Text>
@@ -458,7 +458,7 @@
             <Font name="Arial" size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="171.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80/80">
+      <Text fx:id="playerTwoHP" fill="WHITE" layoutX="171.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="80/80">
          <font>
             <Font size="20.0" />
          </font>
@@ -706,19 +706,19 @@
          </children>
       </AnchorPane>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fill="WHITE" layoutX="20.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:">
+      <Text fx:id="statusText" fill="WHITE" layoutX="20.0" layoutY="596.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Text>
-      <Button layoutX="1042.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: #cc9900;" text="END TURN">
+      <Button fx:id="endTurn" layoutX="1037.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleButton" style="-fx-background-color: #cc9900;" text="Start Game">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="348.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: #cc9900;" text="CHANGE POSITION">
+      <Button fx:id="changePosition" layoutX="348.0" layoutY="312.0" mnemonicParsing="false" style="-fx-background-color: #cc9900;" text="CHANGE POSITION">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
    </children>

@@ -30,6 +30,13 @@ public class Card {
         this.element = element;
     }
     
+    public Card(Card CC) {
+        this.name = CC.getName();
+        this.description = CC.getDescription();
+        this.imagePath = CC.getImagePath();
+        this.element = CC.getElement();
+    }
+    
     public String getName() {
         return this.name;
     }

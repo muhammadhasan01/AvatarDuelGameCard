@@ -8,6 +8,7 @@ package com.avatarduel.gameplay;
 import com.avatarduel.cards.CharacterCards;
 import com.avatarduel.cards.LandCards;
 import com.avatarduel.cards.SkillCards;
+import com.avatarduel.gameboard.CardBattleField;
 import com.avatarduel.gameboard.CardBoard;
 import com.avatarduel.gameboard.CardHand;
 import com.avatarduel.gameboard.CardInBattleField;
@@ -25,6 +26,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
@@ -36,6 +38,8 @@ import javafx.util.Pair;
 public class GamePlay {
     private Player player;
     private CardBoard selectedCard;
+    private Text statusText;
+    private Button changePosition;
     private Text powerAir;
     private Text powerWater;
     private Text powerFire;
@@ -47,6 +51,8 @@ public class GamePlay {
     
     public GamePlay() {
         this.player = new Player();
+        this.statusText = new Text();
+        this.changePosition = new Button();
         this.selectedCard = new CardBoard();
         this.cardView = new CardView();
         this.cardInHand = new CardInHand();
@@ -131,12 +137,23 @@ public class GamePlay {
     public void addFromDeck() {
         List<Card> deckPlayer = this.player.getDeck();
         if (deckPlayer.size() > 0) {
-            this.cardInHand.addCardInHand(deckPlayer.remove(0));
+            Card CC = deckPlayer.get(0);
+            if (this.cardInHand.addCardInHand(CC) > 0) {
+                deckPlayer.remove(0);
+                this.player.setDeckTextTo(deckPlayer.size());
+            }
+        }
+        if (deckPlayer.size() == 0) {
+            statusText.setText("Game Over");
         }
     }
     
-    public void setCardView(Text desc, Text atr, ImageView img, ImageView elm) {
-        this.cardView = new CardView(desc, atr, img, elm);
+    public void setCardView(Text name, Text desc, Text atr, ImageView img, ImageView elm) {
+        this.cardView = new CardView(name, desc, atr, img, elm);
+    }
+    
+    public void setStatusText(Text text) {
+        this.statusText = text;
     }
     
     public void handleHover(CardBoard CC) {
@@ -154,8 +171,13 @@ public class GamePlay {
         return String.valueOf(cur) + "/" + String.valueOf(max);
     }
     
-    public void handleClickHand(int pos, int turnPhase) throws IOException {
-        CardHand CC = this.cardInHand.getCardInHandAt(--pos);
+    public void handleClickHand(int pos, int turnPhase) {
+        CardHand CC = new CardHand();
+        try {
+            CC = this.cardInHand.getCardInHandAt(--pos);
+        } catch (IOException ex) {
+            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (!CC.getIsOccupied()) return;
         if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
         Card card = CC.getCard();
@@ -192,12 +214,24 @@ public class GamePlay {
             }
         } else {
             int currentVal = 0;
+            int maxVal;
+            int curPower = card.getPower();
             switch (element) {
                 case AIR:
                     currentVal = this.player.getPowerAir().getKey();
+                    if (curPower < currentVal) return;
+                    currentVal -= curPower;
+                    maxVal = this.player.getPowerAir().getValue();
+                    this.player.setPowerAir(new Pair<>(currentVal, maxVal));
+                    powerAir.setText(formatPower(currentVal, maxVal));
                     break;
                 case WATER:
                     currentVal = this.player.getPowerWater().getKey();
+                    if (curPower < currentVal) return;
+                    currentVal -= curPower;
+                    maxVal = this.player.getPowerAir().getValue();
+                    this.player.setPowerAir(new Pair<>(currentVal, maxVal));
+                    powerAir.setText(formatPower(currentVal, maxVal));
                     break;
                 case FIRE:
                     currentVal = this.player.getPowerFire().getKey();
@@ -208,8 +242,6 @@ public class GamePlay {
                 default:
                     break;
             }
-            
-            if (card.getPower() < currentVal) return;
             
             boolean isSuccess = false;
             if (card instanceof Skill) {
@@ -227,13 +259,85 @@ public class GamePlay {
         this.cardInHand.updateCardInHand();
     }
     
-    public void handleClickSkillField(int pos, int turnPhase) throws IOException {
-        CardSkillField CC = this.cardInSkillField.getCardInSkillFieldAt(--pos);
+    public void handleClickSkillField(int pos, int turnPhase) {
+        CardSkillField CC = new CardSkillField();
+        try {
+            CC = this.cardInSkillField.getCardInSkillFieldAt(--pos);
+        } catch (IOException ex) {
+            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (!CC.getIsOccupied()) return;
         if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
         if (!this.selectedCard.getCard().getName().equals("")) return;
         if (!CC.getCardAttached().getName().equals("")) return;
+        CC.flipUnderLine();
         this.selectedCard = CC;
         this.selectedCard.flipUnderLine();
+    }
+    
+    public void handleClickBattleField(int pos, int turnPhase) {
+        CardBattleField CC = new CardBattleField();
+        try {
+            CC = this.cardInBattleField.getCardInBattleFieldAt(--pos);
+        } catch (IOException ex) {
+            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (!CC.getIsOccupied()) return;
+        if (turnPhase % 5 == 1 || turnPhase % 5 == 3) {
+            if (this.selectedCard.getCard().getName().equals("")) {
+                this.selectedCard = CC;
+                this.selectedCard.flipUnderLine();
+            } else if (this.selectedCard instanceof CardSkillField) {
+                
+            } else {
+                return;
+            }
+        } else if (turnPhase % 5 == 2) {
+            if (this.selectedCard.getCard().getName().equals("")) {
+                if (!CC.getIsAttacking()) return;
+                this.selectedCard = CC;
+                this.selectedCard.flipUnderLine();
+            } else if (this.selectedCard instanceof CardBattleField) {
+                if (CC.getIsAttacking()) {
+                    int thisAttack = CC.getCard().getAttack();
+                    int selectedAttack = this.selectedCard.getCard().getAttack();
+                    if (selectedAttack <= thisAttack) {
+                        this.selectedCard = new CardBoard();
+                    } else {
+                        int dif = thisAttack - selectedAttack;
+                        int curHealth = this.player.getHealth();
+                        curHealth = Math.max(0, curHealth - dif);
+                        if (curHealth == 0) {
+                            this.statusText.setText("Game Over");
+                        } else {
+                            this.player.setHealth(curHealth);
+                            this.player.setHealthTextTo(String.valueOf(curHealth));
+                        }
+                        this.selectedCard.getText().setUnderline(false);
+                        this.selectedCard = new CardBoard();
+                    }
+                } else {
+                    int thisDefend = CC.getCard().getDefend();
+                    int selectedAttack = this.selectedCard.getCard().getAttack();
+                    if (selectedAttack <= thisDefend) {
+                        this.selectedCard = new CardBoard();
+                    } else {
+                        CC.resetCardBoard();
+                    }
+                }
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }
+    }
+    
+    private void handleClickChangePosition(int turnPhase) {
+        if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
+        if (this.selectedCard.getCard().getName().equals("")) return;
+        if (!(this.selectedCard instanceof CardBattleField)) return;
+        CardBattleField CC = (CardBattleField) this.selectedCard;
+        CC.flipIsAttacking();
     }
 }

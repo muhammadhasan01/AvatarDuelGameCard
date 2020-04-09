@@ -10,6 +10,7 @@ import com.avatarduel.model.Land;
 import com.avatarduel.model.Skill;
 import com.avatarduel.model.Character;
 import java.io.IOException;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -72,6 +73,12 @@ public class CardInHand {
             } else {
                 this.cardInHand[i].setTextTo("");
             }
+        }
+    }
+    
+    public void setTextCardInHand(Text[] text) {
+        for (int i = 0; i < text.length; i++) {
+            this.cardInHand[i].setRefText(text[i]);
         }
     }
 }

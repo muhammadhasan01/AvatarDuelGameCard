@@ -31,12 +31,12 @@ public class SkillCards {
         CSVReader Reader = new CSVReader(CSVFile, "\t");
         Reader.setSkipHeader(true);
         List<String[]> Rows = Reader.read();
-        SkillFactory landFactory;
-        landFactory = new SkillFactory();
+        SkillFactory skillFactory;
+        skillFactory = new SkillFactory();
         Rows.forEach((String[] row) -> {
             row[7] = row[7].substring(0, row[7].length() - 1);
-            Skill CC = landFactory.makeCard(row[1], row[3], row[4], Element.valueOf(row[2]),
-                    Integer.parseInt(row[5]), Integer.parseInt(row[6]), Integer.parseInt(row[7]));
+            Skill CC = skillFactory.makeCard(row[1], row[3], row[4], Element.valueOf(row[2]),
+                    Integer.parseInt(row[7]), Integer.parseInt(row[5]), Integer.parseInt(row[6]));
             skills.add(CC);
         });
     }

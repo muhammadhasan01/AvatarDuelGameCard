@@ -23,33 +23,46 @@ public class CardView {
     
     private final int undefinedReturnValue = -13518012;
     
+    Text cardName;
     Text cardDescription;
     Text cardAttribute;
     ImageView cardImage;
     ImageView cardElement;
     
     public CardView() {
+        this.cardName = new Text();
         this.cardDescription = new Text();
         this.cardAttribute = new Text();
         this.cardImage = new ImageView();
         this.cardElement = new ImageView();
     }
     
-    public CardView(Text desc, Text attr, ImageView img, ImageView elm) {
+    public CardView(Text name, Text desc, Text attr, ImageView img, ImageView elm) {
+        this.cardName = name;
         this.cardDescription = desc;
         this.cardAttribute = attr;
         this.cardImage = img;
         this.cardElement = elm;    
     }
     
+    /**
+     *
+     * @param CC
+     */
     public void setCardViewToCard(Card CC) {
+        this.setCardName(CC.getName());
         this.setCardDescription(CC.getDescription());
+        
         this.setCardAttribute(CC.getAttack(), CC.getDefend(), CC.getPower());
         this.setCardImage(CC.getImagePath());
+        this.setCardElement(CC.getElement());
+    }
+    
+    private void setCardName(String name) {
+        cardName.setText(name);
     }
     
     private void setCardDescription(String desc) {
-        System.out.println("Card Description");
         cardDescription.setText(desc);
     }
     
@@ -58,21 +71,20 @@ public class CardView {
             cardAttribute.setText("");
             return;
         }
-        System.out.println("Card Attribute");
         String attribute = "ATK : " + String.valueOf(atk);
-        attribute += "/DEF : " + String.valueOf(def);
-        attribute += "/POW : " + String.valueOf(power);
+        attribute += "\tDEF : " + String.valueOf(def);
+        attribute += "\tPOW : " + String.valueOf(power);
         cardAttribute.setText(attribute);
     }
     
     private void setCardImage(String pathImage) {
-        System.out.println("Card Image");
+        if (pathImage.charAt(pathImage.length() - 1) == '"')
+            pathImage = pathImage.substring(0, pathImage.length() - 1);
         Image image = new Image(getClass().getResourceAsStream(pathImage));
         cardImage.setImage(image);
     }
     
     private void setCardElement(Element element) {
-        System.out.println("Card Element");
         Image image = null;
         switch (element) {
             case AIR:
