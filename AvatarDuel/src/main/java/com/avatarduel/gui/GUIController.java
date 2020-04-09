@@ -138,7 +138,6 @@ public class GUIController implements Initializable {
 //        player[curPlayer].handleClickBattleField(X, curPhase);
 //    }
     
-    
     @FXML
     private Text cardInStatusFieldPlayerOne_1;
     @FXML
@@ -170,7 +169,6 @@ public class GUIController implements Initializable {
 //    dibagian player dua dibawah juga janlup isi, tinggal ganti playerOne jadi PlayerTwo
 //    @FXML
 //    private Text powerElement<Water/Fire/Earth>PlayerOne
-   
     
     /* Declaration Controller for Player Two */
     @FXML
