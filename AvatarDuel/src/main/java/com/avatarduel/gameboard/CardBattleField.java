@@ -17,22 +17,19 @@ import javafx.scene.text.Text;
 public class CardBattleField extends CardBoard {
     private boolean isAttacking;
     private boolean isAttacked;
-    private boolean isDead;
     private List<CardSkillField> cardAttached;
     
     public CardBattleField() {
         super();
         this.isAttacking = true;
         this.isAttacked = false;
-        this.isDead = false;
         this.cardAttached = new ArrayList<>();
     }
     
-    public CardBattleField(Card card, boolean isOccupied, boolean canHover, Text text, boolean isAttacking, boolean isAttacked, boolean isDead) {
+    public CardBattleField(Card card, boolean isOccupied, boolean canHover, Text text, boolean isAttacking, boolean isAttacked) {
         super(card, isOccupied, canHover, text);
         this.isAttacking = isAttacking;
         this.isAttacked = isAttacked;
-        this.isDead = isDead;
     }
     
     public boolean getIsAttacking() {
@@ -43,31 +40,27 @@ public class CardBattleField extends CardBoard {
         return this.isAttacked;
     }
     
-    public boolean getIsDead() {
-        return this.isDead;
-    }
-    
     public List<CardSkillField> getCardAttached() {
         return this.cardAttached;
     }
     
     public void flipIsAttacking() {
         this.isAttacking = !(this.isAttacking);
+        if (this.isAttacking) {
+            this.setTextTo("CHARACTER (ATTACK)");
+        } else {
+            this.setTextTo("CHARACTER (DEFEND)");
+        }
     }
     
     public void flipIsAttacked() {
         this.isAttacked = !(this.isAttacked);
     }
     
-    public void flipIsDead() {
-        this.isDead = !(this.isDead);
-    }
-    
     public void resetCardBattleField() {
         super.resetCardBoard();
         this.isAttacking = true;
         this.isAttacked = false;
-        this.isDead = false;
     }
     
     public void addCardAttached(CardSkillField CC) {
@@ -77,5 +70,12 @@ public class CardBattleField extends CardBoard {
         card.setDefend(card.getDefend() + skill.getDefend());
         card.setPower(card.getPower() + skill.getPower());
         this.cardAttached.add(CC);
+    }
+    
+    public void setToDead() {
+        this.resetCardBattleField();
+        for (CardSkillField CC : this.cardAttached) {
+            CC.resetCardSkillField();
+        }
     }
 }

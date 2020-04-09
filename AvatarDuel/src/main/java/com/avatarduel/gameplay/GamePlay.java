@@ -137,13 +137,11 @@ public class GamePlay {
     public void addFromDeck() {
         List<Card> deckPlayer = this.player.getDeck();
         if (deckPlayer.size() > 0) {
-            Card CC = deckPlayer.get(0);
-            if (this.cardInHand.addCardInHand(CC) > 0) {
-                deckPlayer.remove(0);
-                this.player.setDeckTextTo(deckPlayer.size());
-            }
+            Card CC = deckPlayer.remove(0);
+            this.cardInHand.addCardInHand(CC);
+            this.player.setDeckTextTo(deckPlayer.size());
         }
-        if (deckPlayer.size() == 0) {
+        if (deckPlayer.isEmpty()) {
             statusText.setText("Game Over");
         }
     }
@@ -156,13 +154,22 @@ public class GamePlay {
         this.statusText = text;
     }
     
+    public void setSelectedCard(CardBoard CC) {
+        this.selectedCard = CC;
+    }
+    
+    public void setButtonChangePosition(Button button) {
+        this.changePosition = button;
+    }
+    
     public void handleHover(CardBoard CC) {
         if (CC.getIsOccupied() && CC.getCanHover()) {
             this.cardView.setCardViewToCard(CC.getCard());
         }
     }
     
-    public void updateField() {
+    public void updateCards() {
+        this.cardInHand.updateCardInHand();
         this.cardInBattleField.updateCardInBattleField();
         this.cardInSkillField.updateCardInSkillField();
     }
@@ -173,17 +180,22 @@ public class GamePlay {
     
     public void handleClickHand(int pos, int turnPhase) {
         CardHand CC = new CardHand();
+        
         try {
             CC = this.cardInHand.getCardInHandAt(--pos);
         } catch (IOException ex) {
             Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         if (!CC.getIsOccupied()) return;
         if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
+        
         Card card = CC.getCard();
         Element element = card.getElement();
+        
         if (card instanceof Land) {
             int currentVal, maxVal;
+            
             switch (element) {
                 case AIR:
                     currentVal = this.player.getPowerAir().getKey() + 1;
@@ -212,14 +224,17 @@ public class GamePlay {
                 default:
                     break;
             }
+            
         } else {
+            
             int currentVal = 0;
             int maxVal;
             int curPower = card.getPower();
+            
             switch (element) {
                 case AIR:
                     currentVal = this.player.getPowerAir().getKey();
-                    if (curPower < currentVal) return;
+                    if (curPower > currentVal) return;
                     currentVal -= curPower;
                     maxVal = this.player.getPowerAir().getValue();
                     this.player.setPowerAir(new Pair<>(currentVal, maxVal));
@@ -227,17 +242,27 @@ public class GamePlay {
                     break;
                 case WATER:
                     currentVal = this.player.getPowerWater().getKey();
-                    if (curPower < currentVal) return;
+                    if (curPower > currentVal) return;
                     currentVal -= curPower;
-                    maxVal = this.player.getPowerAir().getValue();
-                    this.player.setPowerAir(new Pair<>(currentVal, maxVal));
-                    powerAir.setText(formatPower(currentVal, maxVal));
+                    maxVal = this.player.getPowerWater().getValue();
+                    this.player.setPowerWater(new Pair<>(currentVal, maxVal));
+                    powerWater.setText(formatPower(currentVal, maxVal));
                     break;
                 case FIRE:
                     currentVal = this.player.getPowerFire().getKey();
+                    if (curPower > currentVal) return;
+                    currentVal -= curPower;
+                    maxVal = this.player.getPowerFire().getValue();
+                    this.player.setPowerFire(new Pair<>(currentVal, maxVal));
+                    powerFire.setText(formatPower(currentVal, maxVal));
                     break;
                 case EARTH:
                     currentVal = this.player.getPowerEarth().getKey();
+                    if (curPower > currentVal) return;
+                    currentVal -= curPower;
+                    maxVal = this.player.getPowerEarth().getValue();
+                    this.player.setPowerEarth(new Pair<>(currentVal, maxVal));
+                    powerEarth.setText(formatPower(currentVal, maxVal));
                     break;
                 default:
                     break;
@@ -261,81 +286,99 @@ public class GamePlay {
     
     public void handleClickSkillField(int pos, int turnPhase) {
         CardSkillField CC = new CardSkillField();
+        
         try {
             CC = this.cardInSkillField.getCardInSkillFieldAt(--pos);
         } catch (IOException ex) {
             Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         if (!CC.getIsOccupied()) return;
         if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
         if (!this.selectedCard.getCard().getName().equals("")) return;
-        if (!CC.getCardAttached().getName().equals("")) return;
+        if (!CC.getCardAttached().getCard().getName().equals("")) return;
+        
         CC.flipUnderLine();
         this.selectedCard = CC;
-        this.selectedCard.flipUnderLine();
     }
     
     public void handleClickBattleField(int pos, int turnPhase) {
         CardBattleField CC = new CardBattleField();
+        
         try {
             CC = this.cardInBattleField.getCardInBattleFieldAt(--pos);
         } catch (IOException ex) {
             Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         if (!CC.getIsOccupied()) return;
+        
         if (turnPhase % 5 == 1 || turnPhase % 5 == 3) {
+            
             if (this.selectedCard.getCard().getName().equals("")) {
+                CC.flipUnderLine();
                 this.selectedCard = CC;
-                this.selectedCard.flipUnderLine();
-            } else if (this.selectedCard instanceof CardSkillField) {
                 
-            } else {
-                return;
+            } else if (this.selectedCard instanceof CardSkillField) {
+                CardSkillField SS = (CardSkillField) this.selectedCard;
+                
+                SS.setCardAttached(CC);
+                SS.flipUnderLine();
+                CC.addCardAttached(SS);
+                
+                this.selectedCard = new CardBoard();
             }
         } else if (turnPhase % 5 == 2) {
+            
             if (this.selectedCard.getCard().getName().equals("")) {
                 if (!CC.getIsAttacking()) return;
+                if (CC.getIsAttacked()) return;
                 this.selectedCard = CC;
                 this.selectedCard.flipUnderLine();
+                
             } else if (this.selectedCard instanceof CardBattleField) {
+                
+                CardBattleField BB = (CardBattleField) this.selectedCard;
+                BB.flipIsAttacked();
+                BB.flipUnderLine();
+                
                 if (CC.getIsAttacking()) {
                     int thisAttack = CC.getCard().getAttack();
                     int selectedAttack = this.selectedCard.getCard().getAttack();
-                    if (selectedAttack <= thisAttack) {
-                        this.selectedCard = new CardBoard();
-                    } else {
+                    
+  
+                    if (selectedAttack > thisAttack) {
+                        
+                        CC.setToDead();
+                        
                         int dif = thisAttack - selectedAttack;
                         int curHealth = this.player.getHealth();
                         curHealth = Math.max(0, curHealth - dif);
+                        this.player.setHealth(curHealth);
+                        this.player.setHealthTextTo(String.valueOf(curHealth));
+                        
                         if (curHealth == 0) {
                             this.statusText.setText("Game Over");
-                        } else {
-                            this.player.setHealth(curHealth);
-                            this.player.setHealthTextTo(String.valueOf(curHealth));
                         }
-                        this.selectedCard.getText().setUnderline(false);
-                        this.selectedCard = new CardBoard();
+                        
                     }
                 } else {
+                    
                     int thisDefend = CC.getCard().getDefend();
                     int selectedAttack = this.selectedCard.getCard().getAttack();
-                    if (selectedAttack <= thisDefend) {
-                        this.selectedCard = new CardBoard();
-                    } else {
-                        CC.resetCardBoard();
+                    
+                    if (selectedAttack > thisDefend) {
+                        CC.setToDead();
                     }
                 }
-            } else {
-                return;
+                this.selectedCard = new CardBoard();
             }
-        } else {
-            return;
         }
     }
     
-    private void handleClickChangePosition(int turnPhase) {
-        if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
+    public void handleClickChangePosition(int turnPhase) {
         if (this.selectedCard.getCard().getName().equals("")) return;
+        if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
         if (!(this.selectedCard instanceof CardBattleField)) return;
         CardBattleField CC = (CardBattleField) this.selectedCard;
         CC.flipIsAttacking();

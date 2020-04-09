@@ -27,6 +27,7 @@ public class CardInBattleField {
        for (int i = 0; i < maxCardInBattleField; i++) {
            if (!cardInBattleField[i].getIsOccupied()) {
                cardInBattleField[i].flipIsOccupied();
+               cardInBattleField[i].setTextTo("CHARACTER (ATTACK)");
                cardInBattleField[i].setCard(CC);
                return 1;
            }

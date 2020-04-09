@@ -31,6 +31,13 @@ public class CardInHand {
        for (int i = 0; i < maxCardInHand; i++) {
            if (!cardInHand[i].getIsOccupied()) {
                cardInHand[i].flipIsOccupied();
+               if (CC instanceof Character) {
+                   cardInHand[i].setTextTo("CHARACTER");
+               } else if (CC instanceof Skill) {
+                   cardInHand[i].setTextTo("SKILL");
+               } else if (CC instanceof Land) {
+                   cardInHand[i].setTextTo("LAND");
+               }
                cardInHand[i].setCard(CC);
                return 1;
            }
@@ -64,11 +71,11 @@ public class CardInHand {
             Card card = this.cardInHand[i].getCard();
             if (this.cardInHand[i].getIsOccupied()) {
                 if (card instanceof Land) {
-                    this.cardInHand[i].setTextTo("Land");
+                    this.cardInHand[i].setTextTo("LAND");
                 } else if (card instanceof Skill) {
-                    this.cardInHand[i].setTextTo("Skill");
+                    this.cardInHand[i].setTextTo("SKILL");
                 } else if (card instanceof Character) {
-                    this.cardInHand[i].setTextTo("Character");
+                    this.cardInHand[i].setTextTo("CHARACTER");
                 }
             } else {
                 this.cardInHand[i].setTextTo("");

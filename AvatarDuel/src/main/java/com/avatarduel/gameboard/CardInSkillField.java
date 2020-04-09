@@ -30,6 +30,7 @@ public class CardInSkillField {
        for (int i = 0; i < maxCardInSkillField; i++) {
            if (!cardInSkillField[i].getIsOccupied()) {
                cardInSkillField[i].flipIsOccupied();
+               cardInSkillField[i].setTextTo("SKILL");
                cardInSkillField[i].setCard(CC);
                return 1;
            }

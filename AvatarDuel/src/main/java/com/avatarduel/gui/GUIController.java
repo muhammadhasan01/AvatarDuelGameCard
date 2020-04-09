@@ -5,6 +5,7 @@
  */
 package com.avatarduel.gui;
 
+import com.avatarduel.gameboard.CardBoard;
 import com.avatarduel.gameplay.GamePlay;
 import com.avatarduel.model.Card;
 import javafx.event.ActionEvent;
@@ -29,9 +30,11 @@ import javafx.scene.text.Text;
  */
 public class GUIController implements Initializable {
     private final int numOfPlayer = 2;
+    private final int nullPhase = -999;
     
-    private int curPhase = -1;
+    private int curPhase = nullPhase;
     private int curPlayer = 0;
+    private CardBoard selectedCard;
     
     private GamePlay[] player;
     
@@ -61,8 +64,6 @@ public class GUIController implements Initializable {
     private Text endPhase;
     @FXML
     private Button endTurn;
-    @FXML
-    private Button changePosition;
     
     /* Methods for Phases */
     private void flipPhase(Text phase) {
@@ -70,15 +71,45 @@ public class GUIController implements Initializable {
     }
     
     @FXML
-    private void handleButton(ActionEvent event) {
-        if (curPhase == -1) {
+    private void handleButtonEndTurn(ActionEvent event) {
+        
+        if (curPhase == nullPhase) {
             curPhase = 0;
             startGame();
             return;
         }
+        
         flipPhase(phases.get(curPhase));
         curPhase = (curPhase + 1) % 5;
         flipPhase(phases.get(curPhase));
+        
+        for (int i = 0; i < numOfPlayer; i++) {
+            player[i].updateCards();
+        }
+        
+        if (curPhase == 0) {
+            player[curPlayer].addFromDeck();
+        } else if (curPhase == 4) {
+            curPlayer ^= 1;
+        }
+    }
+    
+    /* Declaration and Method for Change Position */
+    @FXML
+    private Button changePosition;
+    
+    @FXML
+    private void handleButtonChangePosition(ActionEvent event) {
+        player[curPlayer].handleClickChangePosition(curPhase);
+    }
+    
+    /* Declaration and Method for Attack Button */
+    @FXML
+    private Button attackButton;
+    
+    @FXML
+    private void handleButtonAttackButton(ActionEvent event) {
+        // TODO
     }
     
     /* Declaration for Status Gameplay */
@@ -196,6 +227,7 @@ public class GUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Initializing");
 
+        // Initialize Player
         player = new GamePlay[numOfPlayer];
         for (int i = 0; i < numOfPlayer; i++) {
             try {
@@ -203,6 +235,8 @@ public class GUIController implements Initializable {
                 player[i].buildDeck();
                 player[i].setCardView(cardName, cardDescription, cardAttribute, cardImage, cardElement);
                 player[i].setStatusText(statusText);
+                player[i].setSelectedCard(selectedCard);
+                player[i].setButtonChangePosition(changePosition);
             } catch (IOException ex) {
                 Logger.getLogger(GUIController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -228,8 +262,13 @@ public class GUIController implements Initializable {
                 player[i].addFromDeck();
             }
         }
+        
         endTurn.setText("END TURN");
         drawPhase.setUnderline(true);
+        
         player[0].addFromDeck();
+        for (int i = 0; i < numOfPlayer; i++) {
+            player[i].updateCards();
+        }
     }
 }
