@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" prefHeight="654.0" prefWidth="1283.0" style="-fx-background-color: #20120F;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.gui.GUIController">
+<AnchorPane id="AnchorPane" prefHeight="654.0" prefWidth="1283.0" style="-fx-background-color: #20120F;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.avatarduel.gui.GUIController">
     <stylesheets>
         <URL value="@/styles/gui.css" />
     </stylesheets>
@@ -262,7 +260,7 @@
             </AnchorPane>
             <AnchorPane layoutX="85.0" layoutY="12.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LAND" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_2" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_2" onMouseEntered="#handleHoverCardInHandPlayerOne_2" strokeType="OUTSIDE" strokeWidth="0.0" text="LAND" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -271,7 +269,7 @@
             </AnchorPane>
             <AnchorPane layoutX="163.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILL" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_3" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_3" onMouseEntered="#handleHoverCardInHandPlayerOne_3" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILL" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -280,7 +278,7 @@
             </AnchorPane>
             <AnchorPane layoutX="240.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_4" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_4" onMouseEntered="#handleHoverCardInHandPlayerOne_4" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -289,7 +287,7 @@
             </AnchorPane>
             <AnchorPane layoutX="319.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_5" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_5" onMouseEntered="#handleHoverCardInHandPlayerOne_5" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -298,7 +296,7 @@
             </AnchorPane>
             <AnchorPane layoutX="397.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_6" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_6" onMouseEntered="#handleHoverCardInHandPlayerOne_6" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -307,7 +305,7 @@
             </AnchorPane>
             <AnchorPane layoutX="476.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_7" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_7" onMouseEntered="#handleHoverCardInHandPlayerOne_7" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -316,7 +314,7 @@
             </AnchorPane>
             <AnchorPane layoutX="554.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_8" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_8" onMouseEntered="#handleHoverCardInHandPlayerOne_8" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -325,7 +323,7 @@
             </AnchorPane>
             <AnchorPane layoutX="632.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_9" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_9" onMouseEntered="#handleHoverCardInHandPlayerOne_9" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -334,7 +332,7 @@
             </AnchorPane>
             <AnchorPane layoutX="709.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_10" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_10" onMouseEntered="#handleHoverCardInHandPlayerOne_10" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -467,7 +465,7 @@
          <children>
             <AnchorPane layoutX="8.0" layoutY="12.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerTwo_1" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_1" onMouseEntered="#handleHoverCardInHandPlayerOne_1" strokeType="OUTSIDE" strokeWidth="0.0" text="CHARACTER" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -476,7 +474,7 @@
             </AnchorPane>
             <AnchorPane layoutX="85.0" layoutY="12.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LAND" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_2" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_2" onMouseEntered="#handleHoverCardInHandPlayerOne_2" strokeType="OUTSIDE" strokeWidth="0.0" text="LAND" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -485,7 +483,7 @@
             </AnchorPane>
             <AnchorPane layoutX="163.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILL" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_3" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_3" onMouseEntered="#handleHoverCardInHandPlayerOne_3" strokeType="OUTSIDE" strokeWidth="0.0" text="SKILL" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -494,7 +492,7 @@
             </AnchorPane>
             <AnchorPane layoutX="240.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_4" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_4" onMouseEntered="#handleHoverCardInHandPlayerOne_4" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -503,7 +501,7 @@
             </AnchorPane>
             <AnchorPane layoutX="319.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_5" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_5" onMouseEntered="#handleHoverCardInHandPlayerOne_5" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -512,7 +510,7 @@
             </AnchorPane>
             <AnchorPane layoutX="397.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_6" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_6" onMouseEntered="#handleHoverCardInHandPlayerOne_6" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -521,7 +519,7 @@
             </AnchorPane>
             <AnchorPane layoutX="476.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_7" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_7" onMouseEntered="#handleHoverCardInHandPlayerOne_7" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -530,7 +528,7 @@
             </AnchorPane>
             <AnchorPane layoutX="554.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_8" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_8" onMouseEntered="#handleHoverCardInHandPlayerOne_8" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -539,7 +537,7 @@
             </AnchorPane>
             <AnchorPane layoutX="632.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_9" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_9" onMouseEntered="#handleHoverCardInHandPlayerOne_9" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
@@ -548,7 +546,7 @@
             </AnchorPane>
             <AnchorPane layoutX="709.0" layoutY="11.0" prefHeight="69.0" prefWidth="67.0" style="-fx-background-color: #ffd966;">
                <children>
-                  <Text layoutX="2.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
+                  <Text fx:id="cardInHandPlayerOne_10" layoutX="2.0" layoutY="40.0" onMouseClicked="#handleClickCardInHandPlayerOne_10" onMouseEntered="#handleHoverCardInHandPlayerOne_10" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="67.40234375">
                      <font>
                         <Font name="Arial Bold" size="10.0" />
                      </font>
