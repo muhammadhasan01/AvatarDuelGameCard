@@ -223,6 +223,83 @@ public class GUIController implements Initializable {
     private void handleClickCardInBattleFieldPlayerOne_1() {
         player[curPlayer].handleClickBattleField(1, curPhase);
     }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_2;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_2() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(2));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_2() {
+        player[curPlayer].handleClickBattleField(2, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_3;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_3() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(3));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_3() {
+        player[curPlayer].handleClickBattleField(3, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_4;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_4() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(4));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_4() {
+        player[curPlayer].handleClickBattleField(4, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_5;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_5() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(5));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_5() {
+        player[curPlayer].handleClickBattleField(5, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_6;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_6() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(6));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_6() {
+        player[curPlayer].handleClickBattleField(6, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_7;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_7() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(7));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_7() {
+        player[curPlayer].handleClickBattleField(7, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_8;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_8() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(8));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_8() {
+        player[curPlayer].handleClickBattleField(8, curPhase);
+    }
 //    jobdesc 2:
 //    Isi X dari 2 ampe 10 ya (jangan lupa @FXML-nya + pastikan sesuai waktu ngelinknya ke FXML)
 //    Di bagian player dua dibawah juga janlup isi, tinggal ganti PlayerOne jadi PlayerTwo
@@ -387,6 +464,91 @@ public class GUIController implements Initializable {
     
     @FXML
     private Text cardInBattleFieldPlayerTwo_1;
+        @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_1() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(1));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_1() {
+        player[curPlayer].handleClickBattleField(1, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_2;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_2() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(2));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_2() {
+        player[curPlayer].handleClickBattleField(2, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_3;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_3() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(3));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_3() {
+        player[curPlayer].handleClickBattleField(3, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_4;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_4() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(4));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_4() {
+        player[curPlayer].handleClickBattleField(4, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_5;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_5() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(5));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_5() {
+        player[curPlayer].handleClickBattleField(5, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_6;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_6() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(6));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_6() {
+        player[curPlayer].handleClickBattleField(6, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_7;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_7() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(7));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_7() {
+        player[curPlayer].handleClickBattleField(7, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_8;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_8() {
+        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(8));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_8() {
+        player[curPlayer].handleClickBattleField(8, curPhase);
+    }
     // jobdesc 2 - lengkapin juga player two (jangan lupa @FXML + nyambungin ke FXML-nya)
     
     @FXML
