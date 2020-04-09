@@ -37,8 +37,10 @@ import javafx.util.Pair;
  */
 public class GamePlay {
     private Player player;
+    private int orderPlayer;
     private CardBoard selectedCard;
     private Text statusText;
+    private Text otherStatusText;
     private Button changePosition;
     private Text powerAir;
     private Text powerWater;
@@ -51,7 +53,9 @@ public class GamePlay {
     
     public GamePlay() {
         this.player = new Player();
+        this.orderPlayer = 0;
         this.statusText = new Text();
+        this.otherStatusText = new Text();
         this.changePosition = new Button();
         this.selectedCard = new CardBoard();
         this.cardView = new CardView();
@@ -66,6 +70,10 @@ public class GamePlay {
     
     public Player getPlayer() {
         return this.player;
+    }
+    
+    public int getOrderPlayer() {
+        return this.orderPlayer;
     }
     
     public CardBoard getSelectedCard() {
@@ -146,12 +154,28 @@ public class GamePlay {
         }
     }
     
+    public void setOrderPlayer(int order) {
+        this.orderPlayer = order;
+    }
+    
     public void setCardView(Text name, Text desc, Text atr, ImageView img, ImageView elm) {
         this.cardView = new CardView(name, desc, atr, img, elm);
     }
     
     public void setStatusText(Text text) {
         this.statusText = text;
+    }
+    
+    public void setOtherStatusText(Text text) {
+        this.otherStatusText = text;
+    }
+    
+    public void setStatusTextTo(String text) {
+        this.statusText.setText(text);
+    }
+    
+    public void setOtherStatusText(String text) {
+        this.otherStatusText.setText(text);
     }
     
     public void setSelectedCard(CardBoard CC) {
@@ -193,33 +217,41 @@ public class GamePlay {
         Card card = CC.getCard();
         Element element = card.getElement();
         
+        int currentAir = this.player.getPowerAir().getKey();
+        int maxAir = this.player.getPowerAir().getValue();
+
+        int currentWater = this.player.getPowerWater().getKey();
+        int maxWater = this.player.getPowerWater().getValue();
+
+        int currentFire = this.player.getPowerFire().getKey();
+        int maxFire = this.player.getPowerFire().getValue();
+
+        int currentEarth = this.player.getPowerEarth().getKey();
+        int maxEarth = this.player.getPowerEarth().getValue();
+        
         if (card instanceof Land) {
             int currentVal, maxVal;
             
             switch (element) {
                 case AIR:
-                    currentVal = this.player.getPowerAir().getKey() + 1;
-                    maxVal = this.player.getPowerAir().getValue() + 1;
-                    this.player.setPowerAir(new Pair<>(currentVal, maxVal));
-                    powerAir.setText(formatPower(currentVal, maxVal));
+                    this.player.setPowerAir(new Pair<>(currentAir + 1, maxAir + 1));
+                    powerAir.setText(formatPower(currentAir + 1, maxAir + 1));
+                    setStatusTextTo("Power Air has increased");
                     break;
                 case WATER:
-                    currentVal = this.player.getPowerWater().getKey() + 1;
-                    maxVal = this.player.getPowerWater().getValue() + 1;
-                    this.player.setPowerWater(new Pair<>(currentVal, maxVal));
-                    powerWater.setText(formatPower(currentVal, maxVal));
+                    this.player.setPowerWater(new Pair<>(currentWater + 1, maxWater + 1));
+                    powerWater.setText(formatPower(currentWater + 1, maxWater + 1));
+                    setStatusTextTo("Power Water has increased");
                     break;
                 case FIRE:
-                    currentVal = this.player.getPowerFire().getKey() + 1;
-                    maxVal = this.player.getPowerFire().getValue() + 1;
-                    this.player.setPowerFire(new Pair<>(currentVal, maxVal));
-                    powerFire.setText(formatPower(currentVal, maxVal));
+                    this.player.setPowerFire(new Pair<>(currentFire + 1, maxFire + 1));
+                    powerFire.setText(formatPower(currentFire + 1, maxFire + 1));
+                    setStatusTextTo("Power Fire has increased");
                     break;
                 case EARTH:
-                    currentVal = this.player.getPowerEarth().getKey() + 1;
-                    maxVal = this.player.getPowerEarth().getValue() + 1;
-                    this.player.setPowerEarth(new Pair<>(currentVal, maxVal));
-                    powerEarth.setText(formatPower(currentVal, maxVal));
+                    this.player.setPowerEarth(new Pair<>(currentEarth + 1, maxEarth + 1));
+                    powerEarth.setText(formatPower(currentEarth + 1, maxEarth + 1));
+                    setStatusTextTo("Power Earth has increased");
                     break;
                 default:
                     break;
@@ -233,36 +265,42 @@ public class GamePlay {
             
             switch (element) {
                 case AIR:
-                    currentVal = this.player.getPowerAir().getKey();
-                    if (curPower > currentVal) return;
-                    currentVal -= curPower;
-                    maxVal = this.player.getPowerAir().getValue();
-                    this.player.setPowerAir(new Pair<>(currentVal, maxVal));
-                    powerAir.setText(formatPower(currentVal, maxVal));
+                    if (curPower > currentAir) {
+                        setStatusTextTo("Power Air not enough");
+                        return;
+                    }
+                    currentAir -= curPower;
+                    this.player.setPowerAir(new Pair<>(currentAir, maxAir));
+                    powerAir.setText(formatPower(currentAir, maxAir));
                     break;
                 case WATER:
-                    currentVal = this.player.getPowerWater().getKey();
-                    if (curPower > currentVal) return;
-                    currentVal -= curPower;
-                    maxVal = this.player.getPowerWater().getValue();
-                    this.player.setPowerWater(new Pair<>(currentVal, maxVal));
-                    powerWater.setText(formatPower(currentVal, maxVal));
+                    if (curPower > currentWater) {
+                        setStatusTextTo("Power Water not enough");
+                        return;
+                    }
+                    currentWater -= curPower;
+                    this.player.setPowerWater(new Pair<>(currentWater, maxWater));
+                    powerWater.setText(formatPower(currentWater, maxWater));
                     break;
                 case FIRE:
-                    currentVal = this.player.getPowerFire().getKey();
-                    if (curPower > currentVal) return;
-                    currentVal -= curPower;
-                    maxVal = this.player.getPowerFire().getValue();
-                    this.player.setPowerFire(new Pair<>(currentVal, maxVal));
-                    powerFire.setText(formatPower(currentVal, maxVal));
+                    if (curPower > currentFire) {
+                        setStatusTextTo("Power Fire not enough");
+                        return;
+                    }
+                    currentFire -= curPower;
+                    maxFire = this.player.getPowerFire().getValue();
+                    this.player.setPowerFire(new Pair<>(currentFire, maxFire));
+                    powerFire.setText(formatPower(currentFire, maxFire));
                     break;
                 case EARTH:
-                    currentVal = this.player.getPowerEarth().getKey();
-                    if (curPower > currentVal) return;
-                    currentVal -= curPower;
-                    maxVal = this.player.getPowerEarth().getValue();
-                    this.player.setPowerEarth(new Pair<>(currentVal, maxVal));
-                    powerEarth.setText(formatPower(currentVal, maxVal));
+                    if (curPower > currentEarth) {
+                        setStatusTextTo("Power Earth not enough");
+                        return;
+                    }
+                    currentEarth -= curPower;
+                    maxEarth = this.player.getPowerEarth().getValue();
+                    this.player.setPowerEarth(new Pair<>(currentEarth, maxEarth));
+                    powerEarth.setText(formatPower(currentEarth, maxEarth));
                     break;
                 default:
                     break;
@@ -271,14 +309,20 @@ public class GamePlay {
             boolean isSuccess = false;
             if (card instanceof Skill) {
                 if (this.cardInSkillField.addCardInSkillField(card) > 0) {
+                    setStatusTextTo("Skill Card successfully summoned!");
                     isSuccess = true;
                 } 
             } else if (card instanceof Character) {
                 if (this.cardInBattleField.addCardInBattleField(card) > 0) {
+                    setStatusTextTo("Character Card successfully summoned!");
                     isSuccess = true;
                 }
             }
-            if (!isSuccess) return;
+            
+            if (!isSuccess) {
+                setStatusTextTo("Failed to select card, Field is already full");
+                return;
+            }
         }
         CC.flipIsOccupied();
         this.cardInHand.updateCardInHand();
@@ -298,6 +342,8 @@ public class GamePlay {
         if (!this.selectedCard.getCard().getName().equals("")) return;
         if (!CC.getCardAttached().getCard().getName().equals("")) return;
         
+        setStatusTextTo("Skill " + CC.getCard().getName() + " has been selected!");
+        
         CC.flipUnderLine();
         this.selectedCard = CC;
     }
@@ -316,6 +362,8 @@ public class GamePlay {
         if (turnPhase % 5 == 1 || turnPhase % 5 == 3) {
             
             if (this.selectedCard.getCard().getName().equals("")) {
+                setStatusTextTo("Character " + CC.getCard().getName() + " has been selected!");
+                
                 CC.flipUnderLine();
                 this.selectedCard = CC;
                 
@@ -326,6 +374,8 @@ public class GamePlay {
                 SS.flipUnderLine();
                 CC.addCardAttached(SS);
                 
+                setStatusTextTo("Character " + CC.getCard().getName() + " has been attached by The Selected Skill Card!");
+                
                 this.selectedCard = new CardBoard();
             }
         } else if (turnPhase % 5 == 2) {
@@ -335,6 +385,8 @@ public class GamePlay {
                 if (CC.getIsAttacked()) return;
                 this.selectedCard = CC;
                 this.selectedCard.flipUnderLine();
+                
+                setStatusTextTo("Character " + CC.getCard().getName() + " has been selected!");
                 
             } else if (this.selectedCard instanceof CardBattleField) {
                 
@@ -352,15 +404,17 @@ public class GamePlay {
                         CC.setToDead();
                         
                         int dif = thisAttack - selectedAttack;
+                        
+                        setStatusTextTo("Player " + getOrderPlayer() + " Has received " + dif + " damage!");
+                        
                         int curHealth = this.player.getHealth();
                         curHealth = Math.max(0, curHealth - dif);
                         this.player.setHealth(curHealth);
                         this.player.setHealthTextTo(String.valueOf(curHealth));
                         
                         if (curHealth == 0) {
-                            this.statusText.setText("Game Over");
+                            setStatusTextTo("Player " + getOrderPlayer() + " has lost");
                         }
-                        
                     }
                 } else {
                     
@@ -368,6 +422,7 @@ public class GamePlay {
                     int selectedAttack = this.selectedCard.getCard().getAttack();
                     
                     if (selectedAttack > thisDefend) {
+                        setStatusTextTo("Card " + CC.getCard().getName() + " has been destroyed!");
                         CC.setToDead();
                     }
                 }
@@ -381,6 +436,7 @@ public class GamePlay {
         if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
         if (!(this.selectedCard instanceof CardBattleField)) return;
         CardBattleField CC = (CardBattleField) this.selectedCard;
+        setStatusTextTo("Card " + CC.getCard().getName() + " has changed position");
         CC.flipIsAttacking();
     }
 }

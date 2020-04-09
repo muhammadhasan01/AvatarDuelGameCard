@@ -7,6 +7,7 @@ package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
 import java.io.IOException;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -57,6 +58,12 @@ public class CardInBattleField {
             } else {
                 cardInBattleField[i].setTextTo("");
             }
+        }
+    }
+    
+    public void setTextCardInBattleField(Text[] text) {
+        for (int i = 0; i < text.length; i++) {
+            this.cardInBattleField[i].setRefText(text[i]);
         }
     }
 }

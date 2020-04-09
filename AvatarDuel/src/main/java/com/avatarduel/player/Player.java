@@ -37,7 +37,7 @@ public class Player {
     public Player() {
         this.health = healthMax;
         healthText = new Text();
-        this.powerAir = this.powerEarth = this.powerFire = this.powerEarth = new Pair<Integer, Integer>(0, 0);
+        this.powerAir = this.powerEarth = this.powerFire = this.powerWater = new Pair<Integer, Integer>(0, 0);
         this.turn = false;
         this.deck = new ArrayList<>();
         this.deckText = new Text();

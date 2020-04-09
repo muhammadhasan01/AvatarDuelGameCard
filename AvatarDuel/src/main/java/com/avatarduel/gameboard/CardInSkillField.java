@@ -4,6 +4,7 @@ package com.avatarduel.gameboard;
 import com.avatarduel.gameboard.CardSkillField;
 import com.avatarduel.model.Card;
 import java.io.IOException;
+import javafx.scene.text.Text;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -59,6 +60,12 @@ public class CardInSkillField {
             } else {
                 cardInSkillField[i].setTextTo("");
             }
+        }
+    }
+    
+    public void setTextCardInSkillField(Text[] text) {
+        for (int i = 0; i < text.length; i++) {
+            this.cardInSkillField[i].setRefText(text[i]);
         }
     }
 }
