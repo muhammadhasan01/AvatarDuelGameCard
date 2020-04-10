@@ -411,11 +411,18 @@ public class GUIController implements Initializable {
     
     @FXML
     private Text powerElementAirPlayerOne;
+    @FXML
+    private Text powerElementWaterPlayerOne;
+    @FXML
+    private Text powerElementFirePlayerOne;
+    @FXML
+    private Text powerElementEarthPlayerOne;
 //    jobdesc 4 : 
 //    isi semua elemen gan, (jangan lupa @FXML-nya + pastikan sesuai waktu ngelinknya ke FXML)
 //    dibagian player dua dibawah juga janlup isi, tinggal ganti playerOne jadi PlayerTwo
 //    @FXML
 //    private Text powerElement<Water/Fire/Earth>PlayerOne
+
     
     /* Declaration Controller for Player Two */
     @FXML
@@ -707,6 +714,12 @@ public class GUIController implements Initializable {
     
     @FXML
     private Text powerElementAirPlayerTwo;
+    @FXML
+    private Text powerElementWaterPlayerTwo;
+    @FXML
+    private Text powerElementFirePlayerTwo;
+    @FXML
+    private Text powerElementEarthPlayerTwo;
     // jobdesc 4 - lengkapin juga player two (jangan lupa @FXML + nyambungin ke FXML-nya)
     
     
