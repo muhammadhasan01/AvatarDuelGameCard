@@ -36,16 +36,16 @@ public class CardInBattleField {
        return 0;
     }
     
-    public CardBattleField getCardInBattleFieldAt(int pos) throws IOException {
+    public CardBattleField getCardInBattleFieldAt(int pos) throws IndexOutOfBoundsException {
         if (pos < 0 || pos >= maxCardInBattleField)
-           throw new IOException("Index card in battle field out of bound");
+           throw new IndexOutOfBoundsException("Index card in battle field out of bound");
         
         return cardInBattleField[pos];
     }
     
-    public void resetCardInBattleFIeldAt(int pos) throws IOException {
+    public void resetCardInBattleFIeldAt(int pos) throws IndexOutOfBoundsException {
         if (pos < 0 || pos >= maxCardInBattleField)
-           throw new IOException("Index card in battle field out of bound");
+           throw new IndexOutOfBoundsException("Index card in battle field out of bound");
         
         cardInBattleField[pos].resetCardBattleField();
     }

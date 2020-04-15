@@ -12,7 +12,7 @@ public class AvatarDuel extends Application {
 
   @Override
   public void start(Stage stage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/GUI.fxml"));
+    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/GUIAvatarDuel.fxml"));
         
     Scene scene = new Scene(root);
 

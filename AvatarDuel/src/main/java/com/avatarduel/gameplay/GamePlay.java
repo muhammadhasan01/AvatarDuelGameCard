@@ -102,23 +102,13 @@ public class GamePlay {
     }
     
     public CardBoard getCardBattleFieldAt(int pos) {
-        try {
-            --pos;
-            return this.cardInBattleField.getCardInBattleFieldAt(pos);
-        } catch (IOException ex) {
-            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+        --pos;
+        return this.cardInBattleField.getCardInBattleFieldAt(pos);
     }
     
     public CardBoard getCardSkillFieldAt(int pos) {
-        try {
-            --pos;
-            return this.cardInSkillField.getCardInSkillFieldAt(pos);
-        } catch (IOException ex) {
-            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+        --pos;
+        return this.cardInSkillField.getCardInSkillFieldAt(pos);
     }
     
     public void buildDeck() throws IOException {
@@ -133,8 +123,6 @@ public class GamePlay {
         List<Character> CC = characterCards.getListCharacter();
         List<Land> LL = landCards.getListLand();
         List<Skill> SS = skillCards.getListSkill();
-        
-        System.out.println(CC.size() + " and " + LL.size() + " and " + SS.size());
         
         this.player.buildDeck(CC, SS, LL);
     }
@@ -328,11 +316,7 @@ public class GamePlay {
     public void handleClickSkillField(int pos, int turnPhase) {
         CardSkillField CC = new CardSkillField();
         
-        try {
-            CC = this.cardInSkillField.getCardInSkillFieldAt(--pos);
-        } catch (IOException ex) {
-            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CC = this.cardInSkillField.getCardInSkillFieldAt(--pos);
         
         if (!CC.getIsOccupied()) return;
         if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
@@ -348,11 +332,7 @@ public class GamePlay {
     public void handleClickBattleField(int pos, int turnPhase) {
         CardBattleField CC = new CardBattleField();
         
-        try {
-            CC = this.cardInBattleField.getCardInBattleFieldAt(--pos);
-        } catch (IOException ex) {
-            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        CC = this.cardInBattleField.getCardInBattleFieldAt(--pos);
         
         if (!CC.getIsOccupied()) return;
         
