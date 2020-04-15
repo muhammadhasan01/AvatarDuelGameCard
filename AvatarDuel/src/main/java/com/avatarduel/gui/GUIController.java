@@ -7,7 +7,6 @@ package com.avatarduel.gui;
 
 import com.avatarduel.gameboard.CardBoard;
 import com.avatarduel.gameplay.GamePlay;
-import com.avatarduel.model.Card;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +18,6 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -134,159 +132,280 @@ public class GUIController implements Initializable {
     private Text cardInHandPlayerOne_1;
     @FXML
     private void handleHoverCardInHandPlayerOne_1() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(1));
+        player[0].handleHover(player[0].getCardHandAt(1));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_1() {
-        player[curPlayer].handleClickHand(1, curPhase);
+        player[0].handleClickHand(1, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_2;
     @FXML
     private void handleHoverCardInHandPlayerOne_2() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(2));
+        player[0].handleHover(player[0].getCardHandAt(2));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_2() {
-        player[curPlayer].handleClickHand(2, curPhase);
+        player[0].handleClickHand(2, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_3;
     @FXML
     private void handleHoverCardInHandPlayerOne_3() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(3));
+        player[0].handleHover(player[0].getCardHandAt(3));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_3() {
-        player[curPlayer].handleClickHand(3, curPhase);
+        player[0].handleClickHand(3, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_4;
     @FXML
     private void handleHoverCardInHandPlayerOne_4() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(4));
+        player[0].handleHover(player[0].getCardHandAt(4));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_4() {
-        player[curPlayer].handleClickHand(4, curPhase);
+        player[0].handleClickHand(4, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_5;
     @FXML
     private void handleHoverCardInHandPlayerOne_5() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(5));
+        player[0].handleHover(player[0].getCardHandAt(5));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_5() {
-        player[curPlayer].handleClickHand(5, curPhase);
+        player[0].handleClickHand(5, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_6;
     @FXML
     private void handleHoverCardInHandPlayerOne_6() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(6));
+        player[0].handleHover(player[0].getCardHandAt(6));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_6() {
-        player[curPlayer].handleClickHand(6, curPhase);
+        player[0].handleClickHand(6, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_7;
     @FXML
     private void handleHoverCardInHandPlayerOne_7() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(7));
+        player[0].handleHover(player[0].getCardHandAt(7));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_7() {
-        player[curPlayer].handleClickHand(7, curPhase);
+        player[0].handleClickHand(7, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_8;
     @FXML
     private void handleHoverCardInHandPlayerOne_8() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(8));
+        player[0].handleHover(player[0].getCardHandAt(8));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_8() {
-        player[curPlayer].handleClickHand(8, curPhase);
+        player[0].handleClickHand(8, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_9;
     @FXML
     private void handleHoverCardInHandPlayerOne_9() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(9));
+        player[0].handleHover(player[0].getCardHandAt(9));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_9() {
-        player[curPlayer].handleClickHand(9, curPhase);
+        player[0].handleClickHand(9, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerOne_10;
     @FXML
     private void handleHoverCardInHandPlayerOne_10() {
-        player[curPlayer].handleHover(player[curPlayer].getCardHandAt(10));
+        player[0].handleHover(player[0].getCardHandAt(10));
     }
     @FXML
     private void handleClickCardInHandPlayerOne_10() {
-        player[curPlayer].handleClickHand(10, curPhase);
+        player[0].handleClickHand(10, curPhase);
     }
     
     @FXML
     private Text cardInBattleFieldPlayerOne_1;
     @FXML
     private void handleHoverCardInBattleFieldPlayerOne_1() {
-        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(1));
+        player[0].handleHover(player[0].getCardBattleFieldAt(1));
     }
     @FXML
     private void handleClickCardInBattleFieldPlayerOne_1() {
-        player[curPlayer].handleClickBattleField(1, curPhase);
+        player[0].handleClickBattleField(1, curPhase);
     }
-//    jobdesc 2:
-//    Isi X dari 2 ampe 10 ya (jangan lupa @FXML-nya + pastikan sesuai waktu ngelinknya ke FXML)
-//    Di bagian player dua dibawah juga janlup isi, tinggal ganti PlayerOne jadi PlayerTwo
-//    @FXML
-//    private Text cardBattleFieldPlayerOne_1;
-//    @FXML
-//    private void handleHoverCardInBattleFieldPlayerOne_X() {
-//        player[curPlayer].handleHover(player[curPlayer].getCardBattleFieldAt(X));
-//    }
-//    @FXML
-//    private void handleClickCardInBattleFieldPlayerOne_X() {
-//        player[curPlayer].handleClickBattleField(X, curPhase);
-//    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_2;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_2() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(2));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_2() {
+        player[0].handleClickBattleField(2, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_3;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_3() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(3));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_3() {
+        player[0].handleClickBattleField(3, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_4;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_4() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(4));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_4() {
+        player[0].handleClickBattleField(4, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_5;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_5() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(5));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_5() {
+        player[0].handleClickBattleField(5, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_6;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_6() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(6));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_6() {
+        player[0].handleClickBattleField(6, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_7;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_7() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(7));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_7() {
+        player[0].handleClickBattleField(7, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerOne_8;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerOne_8() {
+        player[0].handleHover(player[0].getCardBattleFieldAt(8));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerOne_8() {
+        player[0].handleClickBattleField(8, curPhase);
+    }
     
     @FXML
     private Text cardInStatusFieldPlayerOne_1;
     @FXML
     private void handleHoverCardInSkillFieldPlayerOne_1() {
-        player[curPlayer].handleHover(player[curPlayer].getCardSkillFieldAt(1));
+        player[0].handleHover(player[0].getCardSkillFieldAt(1));
     }
     @FXML
     private void handleClickCardInSkillFieldPlayerOne_1() {
-        player[curPlayer].handleClickSkillField(1, curPhase);
+        player[0].handleClickSkillField(1, curPhase);
     }
-//    jobdesc 3:
-//    Isi X dari 2 ampe 10 ya (jangan lupa @FXML-nya + pastikan sesuai waktu ngelinknya ke FXML)
-//    Di bagian player dua dibawah juga janlup isi, tinggal ganti PlayerOne jadi PlayerTwo
-//    @FXML
-//    private Text cardStatusFieldPlayerOne_1;
-//    @FXML
-//    private void handleHoverCardInStatusFieldPlayerOne_X() {
-//        player[curPlayer].handleHover(player[curPlayer].getCardSkillFieldAt(1));
-//    }
-//    @FXML
-//    private void handleClickCardInSkillFieldPlayerOne_X() {
-//        player[curPlayer].handleClickSkilField(X, curPhase);
-//    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_2;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_2() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(2));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_2() {
+        player[0].handleClickSkillField(2, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_3;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_3() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(3));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_3() {
+        player[0].handleClickSkillField(3, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_4;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_4() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(4));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_4() {
+        player[0].handleClickSkillField(4, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_5;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_5() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(5));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_5() {
+        player[0].handleClickSkillField(5, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_6;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_6() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(6));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_6() {
+        player[0].handleClickSkillField(6, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_7;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_7() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(7));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_7() {
+        player[0].handleClickSkillField(1, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerOne_8;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerOne_8() {
+        player[0].handleHover(player[0].getCardSkillFieldAt(8));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerOne_8() {
+        player[0].handleClickSkillField(8, curPhase);
+    }
     
     @FXML
     private Text powerElementAirPlayerOne;
@@ -305,123 +424,290 @@ public class GUIController implements Initializable {
     private Text cardInHandPlayerTwo_1;
     @FXML
     private void handleHoverCardInHandPlayerTwo_1() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(1));
+        player[1].handleHover(player[1].getCardHandAt(1));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_1() {
-        player[1 - curPlayer].handleClickHand(1, curPhase);
+        player[1].handleClickHand(1, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_2;
     @FXML
     private void handleHoverCardInHandPlayerTwo_2() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(2));
+        player[1].handleHover(player[1].getCardHandAt(2));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_2() {
-        player[1 - curPlayer].handleClickHand(2, curPhase);
+        player[1].handleClickHand(2, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_3;
     @FXML
     private void handleHoverCardInHandPlayerTwo_3() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(3));
+        player[1].handleHover(player[1].getCardHandAt(3));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_3() {
-        player[1 - curPlayer].handleClickHand(3, curPhase);
+        player[1].handleClickHand(3, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_4;
     @FXML
     private void handleHoverCardInHandPlayerTwo_4() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(4));
+        player[1].handleHover(player[1].getCardHandAt(4));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_4() {
-        player[1 - curPlayer].handleClickHand(4, curPhase);
+        player[1].handleClickHand(4, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_5;
     @FXML
     private void handleHoverCardInHandPlayerTwo_5() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(5));
+        player[1].handleHover(player[1].getCardHandAt(5));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_5() {
-        player[1 - curPlayer].handleClickHand(5, curPhase);
+        player[1].handleClickHand(5, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_6;
     @FXML
     private void handleHoverCardInHandPlayerTwo_6() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(6));
+        player[1].handleHover(player[1].getCardHandAt(6));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_6() {
-        player[1 - curPlayer].handleClickHand(6, curPhase);
+        player[1].handleClickHand(6, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_7;
     @FXML
     private void handleHoverCardInHandPlayerTwo_7() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(7));
+        player[1].handleHover(player[1].getCardHandAt(7));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_7() {
-        player[1 - curPlayer].handleClickHand(7, curPhase);
+        player[1].handleClickHand(7, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_8;
     @FXML
     private void handleHoverCardInHandPlayerTwo_8() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(8));
+        player[1].handleHover(player[1].getCardHandAt(8));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_8() {
-        player[1 - curPlayer].handleClickHand(8, curPhase);
+        player[1].handleClickHand(8, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_9;
     @FXML
     private void handleHoverCardInHandPlayerTwo_9() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(9));
+        player[1].handleHover(player[1].getCardHandAt(9));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_9() {
-        player[1 - curPlayer].handleClickHand(9, curPhase);
+        player[1].handleClickHand(9, curPhase);
     }
 
     @FXML
     private Text cardInHandPlayerTwo_10;
     @FXML
     private void handleHoverCardInHandPlayerTwo_10() {
-        player[1 - curPlayer].handleHover(player[1 - curPlayer].getCardHandAt(10));
+        player[1].handleHover(player[1].getCardHandAt(10));
     }
     @FXML
     private void handleClickCardInHandPlayerTwo_10() {
-        player[1 - curPlayer].handleClickHand(10, curPhase);
+        player[1].handleClickHand(10, curPhase);
     }
     
     @FXML
     private Text cardInBattleFieldPlayerTwo_1;
+        @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_1() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(1));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_1() {
+        player[1].handleClickBattleField(1, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_2;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_2() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(2));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_2() {
+        player[1].handleClickBattleField(2, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_3;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_3() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(3));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_3() {
+        player[1].handleClickBattleField(3, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_4;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_4() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(4));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_4() {
+        player[1].handleClickBattleField(4, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_5;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_5() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(5));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_5() {
+        player[1].handleClickBattleField(5, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_6;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_6() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(6));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_6() {
+        player[1].handleClickBattleField(6, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_7;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_7() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(7));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_7() {
+        player[1].handleClickBattleField(7, curPhase);
+    }
+    
+    @FXML
+    private Text cardInBattleFieldPlayerTwo_8;
+    @FXML
+    private void handleHoverCardInBattleFieldPlayerTwo_8() {
+        player[1].handleHover(player[1].getCardBattleFieldAt(8));
+    }
+    @FXML
+    private void handleClickCardInBattleFieldPlayerTwo_8() {
+        player[1].handleClickBattleField(8, curPhase);
+    }
     // jobdesc 2 - lengkapin juga player two (jangan lupa @FXML + nyambungin ke FXML-nya)
     
     @FXML
     private Text cardInStatusFieldPlayerTwo_1;
-    // jobdesc 3 - lengkapin juga player two (jangan lupa @FXML + nyambungin ke FXML-nya)
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_1() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(1));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_1() {
+        player[1].handleClickSkillField(1, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_2;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_2() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(2));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_2() {
+        player[1].handleClickSkillField(2, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_3;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_3() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(3));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_3() {
+        player[1].handleClickSkillField(3, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_4;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_4() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(4));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_4() {
+        player[1].handleClickSkillField(4, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_5;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_5() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(5));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_5() {
+        player[1].handleClickSkillField(5, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_6;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_6() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(6));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_6() {
+        player[1].handleClickSkillField(6, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_7;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_7() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(7));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_7() {
+        player[1].handleClickSkillField(1, curPhase);
+    }
+    @FXML
+    private Text cardInStatusFieldPlayerTwo_8;
+    @FXML
+    private void handleHoverCardInSkillFieldPlayerTwo_8() {
+        player[1].handleHover(player[1].getCardSkillFieldAt(8));
+    }
+    @FXML
+    private void handleClickCardInSkillFieldPlayerTwo_8() {
+        player[1].handleClickSkillField(8, curPhase);
+    }
     
     @FXML
     private Text powerElementAirPlayerTwo;
-    // jobdesc 4 - lengkapin juga player two (jangan lupa @FXML + nyambungin ke FXML-nya)
+    @FXML
+    private Text powerElementWaterPlayerTwo;
+    @FXML
+    private Text powerElementFirePlayerTwo;
+    @FXML
+    private Text powerElementEarthPlayerTwo;
     
     
     @Override

@@ -5,12 +5,68 @@
  */
 package com.avatarduel.factory;
 
-import com.avatarduel.model.*;
+import com.avatarduel.model.Card;
+import com.avatarduel.model.Land;
+import com.avatarduel.model.Skill;
+import com.avatarduel.model.Element;
+import com.avatarduel.model.Character;
 
 /**
  *
  * @author Muhammad Hasan - 13518012
  */
-public interface CardFactory {
-    public Card makeCard(String name, String desc, String path, Element element);
+public class CardFactory {
+    /**
+     * 
+     * @param name
+     * @param desc
+     * @param path Path for image file
+     * @param element
+     * @return Create a new instance of card
+     */
+    public Card makeCard(String name, String desc, String path, Element element) {
+        return new Card(name, desc, path, element);
+    }
+    
+    /**
+     * 
+     * @param name
+     * @param desc
+     * @param path Path for image file
+     * @param element
+     * @return Create a new instance of land
+     */
+    public Land makeLand(String name, String desc, String path, Element element) {
+        return new Land(name, desc, path, element);
+    }
+    
+    /**
+     * 
+     * @param name
+     * @param desc
+     * @param path Path for image file
+     * @param element
+     * @param atk
+     * @param def
+     * @param pow
+     * @return Create a new instance of Character
+     */
+    public Character makeCharacter(String name, String desc, String path, Element element, int atk, int def, int pow) {
+        return new Character(name, desc, path, element, atk, def, pow);
+    }
+    
+    /**
+     * 
+     * @param name
+     * @param desc
+     * @param path Path for image file
+     * @param element
+     * @param atk
+     * @param def
+     * @param pow
+     * @return Create a new instance of skill
+     */
+    public Skill makeSkill(String name, String desc, String path, Element element, int atk, int def, int pow) {
+        return new Skill(name, desc, path, element, atk, def, pow);
+    }
 }

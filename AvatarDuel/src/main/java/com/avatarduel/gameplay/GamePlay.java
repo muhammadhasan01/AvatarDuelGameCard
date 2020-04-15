@@ -22,7 +22,6 @@ import com.avatarduel.model.Character;
 import com.avatarduel.model.Element;
 import com.avatarduel.player.Player;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -123,23 +122,21 @@ public class GamePlay {
     }
     
     public void buildDeck() throws IOException {
-        try {
-            LandCards landCards = new LandCards();
-            CharacterCards characterCards = new CharacterCards();
-            SkillCards skillCards = new SkillCards();
-            
-            characterCards.loadCards();
-            landCards.loadCards();
-            skillCards.loadCards();
-            
-            List<Character> CC = characterCards.getListCharacter();
-            List<Land> LL = landCards.getListLand();
-            List<Skill> SS = skillCards.getListSkill();
-            
-            this.player.buildDeck(CC, SS, LL);
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(GamePlay.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LandCards landCards = new LandCards();
+        CharacterCards characterCards = new CharacterCards();
+        SkillCards skillCards = new SkillCards();
+        
+        characterCards.loadCards();
+        landCards.loadCards();
+        skillCards.loadCards();
+        
+        List<Character> CC = characterCards.getListCharacter();
+        List<Land> LL = landCards.getListLand();
+        List<Skill> SS = skillCards.getListSkill();
+        
+        System.out.println(CC.size() + " and " + LL.size() + " and " + SS.size());
+        
+        this.player.buildDeck(CC, SS, LL);
     }
     
     public void addFromDeck() {
@@ -432,11 +429,18 @@ public class GamePlay {
     }
     
     public void handleClickChangePosition(int turnPhase) {
-        if (this.selectedCard.getCard().getName().equals("")) return;
-        if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3)) return;
-        if (!(this.selectedCard instanceof CardBattleField)) return;
+        if (this.selectedCard.getCard().getName().equals(""))
+            return;
+        
+        if (!(turnPhase % 5 == 1 || turnPhase % 5 == 3))
+            return;
+        
+        if (!(this.selectedCard instanceof CardBattleField))
+            return;
+        
         CardBattleField CC = (CardBattleField) this.selectedCard;
         setStatusTextTo("Card " + CC.getCard().getName() + " has changed position");
+        
         CC.flipIsAttacking();
     }
 }

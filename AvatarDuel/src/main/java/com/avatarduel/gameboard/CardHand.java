@@ -10,7 +10,7 @@ import javafx.scene.text.Text;
 
 /**
  *
- * @author USER
+ * @author Muhammad Hasan - 13518012
  */
 public class CardHand extends CardBoard {
     public CardHand() {

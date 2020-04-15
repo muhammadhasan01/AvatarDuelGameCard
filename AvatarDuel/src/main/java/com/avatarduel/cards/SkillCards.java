@@ -5,44 +5,52 @@
  */
 package com.avatarduel.cards;
 
-import com.avatarduel.factory.SkillFactory;
+import com.avatarduel.factory.CardFactory;
 import com.avatarduel.model.Element;
 import com.avatarduel.model.Skill;
-import com.avatarduel.util.CSVReader;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Muhammad Hasan - 13518012
  */
-public class SkillCards {
+public class SkillCards extends ListCards {
     
     private static final String SKILL_CSV_FILE_PATH = "/com/avatarduel/card/data/skill_aura.csv";
     
     public List<Skill> skills;
     
-    public void loadCards() throws IOException, URISyntaxException {
+    @Override
+    public void loadCards() {
+        List<String[]> Rows = new ArrayList<>();
+        try {
+            Rows = loadCSV(SKILL_CSV_FILE_PATH);
+        } catch (IOException | URISyntaxException ex) {
+            Logger.getLogger(LandCards.class.getName()).log(Level.SEVERE, null, ex);
+        }
         skills = new ArrayList<>();
-        File CSVFile = new File(getClass().getResource(SKILL_CSV_FILE_PATH).toURI());
-        CSVReader Reader = new CSVReader(CSVFile, "\t");
-        Reader.setSkipHeader(true);
-        List<String[]> Rows = Reader.read();
-        SkillFactory skillFactory;
-        skillFactory = new SkillFactory();
-        Rows.forEach((String[] row) -> {
+        CardFactory cardFactory = new CardFactory();
+        Rows.forEach((row) -> {
             row[7] = row[7].substring(0, row[7].length() - 1);
-            Skill CC = skillFactory.makeCard(row[1], row[3], row[4], Element.valueOf(row[2]),
+            Skill CC = cardFactory.makeSkill(row[1], row[3], row[4], Element.valueOf(row[2]),
                     Integer.parseInt(row[7]), Integer.parseInt(row[5]), Integer.parseInt(row[6]));
             skills.add(CC);
         });
     }
     
-    public Skill getSkillAt(int idx) throws IOException {
-        if (idx < 0 || idx > skills.size()) throw new IOException("Index out of bound");
+     /**
+     * 
+     * @param idx The specified index on where to get the Skill from list of Skill
+     * @return Skill at index = idx from list of Skills
+     * @throws IndexOutOfBoundsException
+     */
+    public Skill getSkillAt(int idx) throws IndexOutOfBoundsException {
+        if (idx < 0 || idx >= skills.size()) throw new IndexOutOfBoundsException("Index out of bound");
         return skills.get(idx);
     }
     
