@@ -25,13 +25,6 @@ public class CardBoard {
         this.text = new Text();
     }
     
-    public CardBoard(Card card, boolean isOccupied, boolean canHover, Text text) {
-        this.card = new Card();
-        this.isOccupied = isOccupied;
-        this.canHover = canHover;
-        this.text = text;
-    }
-    
     public Card getCard() {
         return this.card;
     }

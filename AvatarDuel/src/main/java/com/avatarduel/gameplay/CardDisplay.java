@@ -15,11 +15,12 @@ import javafx.scene.text.Text;
  *
  * @author Muhammad Hasan - 13518012
  */
-public class CardView {
+public class CardDisplay {
     private final String pathElementAir = "/com/avatarduel/images/AirElement.png";
     private final String pathElementWater = "/com/avatarduel/images/WaterElement.png";
     private final String pathElementFire = "/com/avatarduel/images/FireElement.png";
     private final String pathElementEarth = "/com/avatarduel/images/EarthElement.png";
+    private final String pathElementEnergy = "/com/avatarduel/images/EnergyElement.png";
     
     private final int undefinedReturnValue = -13518012;
     
@@ -29,7 +30,7 @@ public class CardView {
     ImageView cardImage;
     ImageView cardElement;
     
-    public CardView() {
+    public CardDisplay() {
         this.cardName = new Text();
         this.cardDescription = new Text();
         this.cardAttribute = new Text();
@@ -37,7 +38,8 @@ public class CardView {
         this.cardElement = new ImageView();
     }
     
-    public CardView(Text name, Text desc, Text attr, ImageView img, ImageView elm) {
+   
+    public void setCardDisplay(Text name, Text desc, Text attr, ImageView img, ImageView elm) {
         this.cardName = name;
         this.cardDescription = desc;
         this.cardAttribute = attr;
@@ -45,10 +47,6 @@ public class CardView {
         this.cardElement = elm;    
     }
     
-    /**
-     *
-     * @param CC
-     */
     public void setCardViewToCard(Card CC) {
         this.setCardName(CC.getName());
         this.setCardDescription(CC.getDescription());
@@ -98,6 +96,9 @@ public class CardView {
                 break;
             case FIRE:
                 image = new Image(getClass().getResourceAsStream(pathElementFire));
+                break;
+            case ENERGY:
+                image = new Image(getClass().getResourceAsStream(pathElementEnergy));
                 break;
             default:
                 break;

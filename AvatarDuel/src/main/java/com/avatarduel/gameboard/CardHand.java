@@ -5,23 +5,27 @@
  */
 package com.avatarduel.gameboard;
 
-import com.avatarduel.model.Card;
-import javafx.scene.text.Text;
-
 /**
  *
  * @author Muhammad Hasan - 13518012
  */
 public class CardHand extends CardBoard {
+    private boolean isClosed;
+    
     public CardHand() {
         super();
-    }
-    
-    public CardHand(Card card, boolean isOccupied, boolean canHover, Text text) {
-        super(card, isOccupied, canHover, text);
+        this.isClosed = false;
     }
     
     public void resetCardHand() {
         super.resetCardBoard();
+    }
+    
+    public boolean getIsClosed() {
+        return this.isClosed;
+    }
+    
+    public void flipIsClosed() {
+        this.isClosed = !(this.isClosed);
     }
 }

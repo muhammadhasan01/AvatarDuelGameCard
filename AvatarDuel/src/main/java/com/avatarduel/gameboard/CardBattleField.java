@@ -8,7 +8,6 @@ package com.avatarduel.gameboard;
 import com.avatarduel.model.Card;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.text.Text;
 
 /**
  *
@@ -24,12 +23,6 @@ public class CardBattleField extends CardBoard {
         this.isAttacking = true;
         this.isAttacked = false;
         this.cardAttached = new ArrayList<>();
-    }
-    
-    public CardBattleField(Card card, boolean isOccupied, boolean canHover, Text text, boolean isAttacking, boolean isAttacked) {
-        super(card, isOccupied, canHover, text);
-        this.isAttacking = isAttacking;
-        this.isAttacked = isAttacked;
     }
     
     public boolean getIsAttacking() {
@@ -68,8 +61,20 @@ public class CardBattleField extends CardBoard {
         Card skill = this.getCard();
         card.setAttack(card.getAttack() + skill.getAttack());
         card.setDefend(card.getDefend() + skill.getDefend());
-        card.setPower(card.getPower() + skill.getPower());
         this.cardAttached.add(CC);
+    }
+    
+    public void removeCardAttached(CardSkillField CC) {
+        for (int i = 0; i < this.cardAttached.size(); i++) {
+            if (this.cardAttached.get(i) == CC) {
+                Card card = this.getCard();
+                Card skill = this.getCard();
+                card.setAttack(card.getAttack() - skill.getAttack());
+                card.setDefend(card.getDefend() - skill.getDefend());
+                this.cardAttached.remove(i);
+                break;
+            }
+        }
     }
     
     public void setToDead() {

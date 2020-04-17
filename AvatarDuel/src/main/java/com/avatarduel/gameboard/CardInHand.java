@@ -9,7 +9,6 @@ import com.avatarduel.model.Card;
 import com.avatarduel.model.Land;
 import com.avatarduel.model.Skill;
 import com.avatarduel.model.Character;
-import java.io.IOException;
 import javafx.scene.text.Text;
 
 /**
@@ -45,31 +44,23 @@ public class CardInHand {
        return 0;
     }
     
-    public CardHand getCardInHandAt(int pos) throws IOException {
+    public CardHand getCardInHandAt(int pos) throws IndexOutOfBoundsException {
         if (pos < 0 || pos >= maxCardInHand)
-           throw new IOException("Index card in battle field out of bound");
+           throw new IndexOutOfBoundsException("Index card in battle field out of bound");
         
         return cardInHand[pos];
     }
     
-    public void resetCardInBattleFIeldAt(int pos) throws IOException {
-        if (pos < 0 || pos >= maxCardInHand)
-           throw new IOException("Index card in battle field out of bound");
-        
-        cardInHand[pos].resetCardHand();
-    }
-    
     public void closeCards() {
         for (int i = 0; i < maxCardInHand; i++) {
-            this.cardInHand[i].flipCanHover();
-            this.cardInHand[i].setTextTo("");
+            this.cardInHand[i].flipIsClosed();
         }
     }
     
     public void updateCardInHand() {
         for (int i = 0; i < maxCardInHand; i++) {
             Card card = this.cardInHand[i].getCard();
-            if (this.cardInHand[i].getIsOccupied()) {
+            if (this.cardInHand[i].getIsOccupied() && !this.cardInHand[i].getIsClosed()) {
                 if (card instanceof Land) {
                     this.cardInHand[i].setTextTo("LAND");
                 } else if (card instanceof Skill) {
@@ -79,6 +70,16 @@ public class CardInHand {
                 }
             } else {
                 this.cardInHand[i].setTextTo("");
+            }
+        }
+    }
+    
+    public void resetCardInHand() {
+        for (int i = 0; i < maxCardInHand; i++) {
+            CardHand CC = this.cardInHand[i];
+            CC.setTextTo("");
+            if (CC.getIsOccupied()) {
+                CC.flipIsOccupied();
             }
         }
     }

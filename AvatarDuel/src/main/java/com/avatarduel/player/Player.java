@@ -8,6 +8,7 @@ package com.avatarduel.player;
 import com.avatarduel.model.Card;
 import com.avatarduel.model.Land;
 import com.avatarduel.model.Character;
+import com.avatarduel.model.Element;
 import com.avatarduel.model.Skill;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,34 +31,23 @@ public class Player {
     private Pair<Integer, Integer> powerWater;
     private Pair<Integer, Integer> powerFire;
     private Pair<Integer, Integer> powerEarth;
-    private boolean turn;
+    private Pair<Integer, Integer> powerEnergy;
     private List<Card> deck;
     private Text deckText;
     
     public Player() {
         this.health = healthMax;
         healthText = new Text();
-        this.powerAir = this.powerEarth = this.powerFire = this.powerWater = new Pair<Integer, Integer>(0, 0);
-        this.turn = false;
+        this.powerAir = this.powerEarth = this.powerFire = this.powerWater = this.powerEnergy = new Pair<>(0, 0);
         this.deck = new ArrayList<>();
         this.deckText = new Text();
-    }
-    
-    public Player(int h, Pair<Integer, Integer> a, Pair<Integer, Integer> w, Pair<Integer, Integer> f, Pair<Integer, Integer> e, boolean t) {
-        this.health = h;
-        this.powerAir = a;
-        this.powerWater = w;
-        this.powerFire = f;
-        this.powerEarth = e;
-        this.turn = t;
-        this.deck = new ArrayList<>();
     }
 
     /**
      * build deck with character : skill : land = 2 : 1 : 2
-     * @param CC
-     * @param SS
-     * @param LL
+     * @param CC List of Card Character
+     * @param SS List of Card Skill
+     * @param LL List of Card Land
      */
     public void buildDeck(List<Character> CC, List<Skill> SS, List<Land> LL) {
         Random rand = new Random();
@@ -77,32 +67,39 @@ public class Player {
         return this.health;
     }
     
-    public Pair<Integer, Integer> getPowerAir() {
-        return this.powerAir;
-    }
-    
-    public Pair<Integer, Integer> getPowerWater() {
-        return this.powerWater;
-    }
-    
-    public Pair<Integer, Integer> getPowerFire() {
-        return this.powerFire;
-    }
-    
-    public Pair<Integer, Integer> getPowerEarth() {
-        return this.powerEarth;
+    public Pair<Integer, Integer> getPower(Element element) {
+        Pair<Integer, Integer> ret = null;
+        switch (element) {
+                case AIR:
+                    ret = this.powerAir;
+                    break;
+                case WATER:
+                    ret = this.powerWater;
+                    break;
+                case FIRE:
+                    ret = this.powerFire;
+                    break;
+                case EARTH:
+                    ret = this.powerEarth;
+                    break;
+                case ENERGY:    
+                    ret = this.powerEnergy;
+                default:
+                    break;
+        }
+        return ret;
     }
     
     public Text getDeckText() {
         return this.deckText;
     }
     
-    public boolean getTurn() {
-        return this.turn;
-    }
-    
     public List<Card> getDeck() {
         return this.deck;
+    }
+    
+    public int getDeckSize() {
+        return this.deck.size();
     }
     
     public Text getHealthText() {
@@ -113,24 +110,25 @@ public class Player {
         this.health = h;
     }
     
-    public void setPowerAir(Pair<Integer, Integer> a) {
-        this.powerAir = a;
-    }
-    
-    public void setPowerWater(Pair<Integer, Integer> w) {
-        this.powerWater = w;
-    }
-    
-    public void setPowerFire(Pair<Integer, Integer> f) {
-        this.powerFire = f;
-    }
-    
-    public void setPowerEarth(Pair<Integer, Integer> e) {
-        this.powerEarth = e;
-    }
-    
-    public void flipTurn() {
-        this.turn = !(this.turn);
+    public void setPower(Element element, Pair<Integer, Integer> p) {
+        switch (element) {
+                case AIR:
+                    this.powerAir = p;
+                    break;
+                case WATER:
+                    this.powerWater = p;
+                    break;
+                case FIRE:
+                    this.powerFire = p;
+                    break;
+                case EARTH:
+                    this.powerEarth = p;
+                    break;
+                case ENERGY:
+                    this.powerEnergy = p;
+                default:
+                    break;
+        }
     }
     
     public void addCard(Card CC) {

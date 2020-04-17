@@ -38,7 +38,7 @@ public class SkillCards extends ListCards {
         Rows.forEach((row) -> {
             row[7] = row[7].substring(0, row[7].length() - 1);
             Skill CC = cardFactory.makeSkill(row[1], row[3], row[4], Element.valueOf(row[2]),
-                    Integer.parseInt(row[7]), Integer.parseInt(row[5]), Integer.parseInt(row[6]));
+                    Integer.parseInt(row[6]), Integer.parseInt(row[7]), Integer.parseInt(row[5]));
             skills.add(CC);
         });
     }
