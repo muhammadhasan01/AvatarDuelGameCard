@@ -33,12 +33,13 @@ public class CardInBattleField {
         return (numOfCardInBattleField == maxCardInBattleField);
     }
     
-    public boolean addCardInBattleField(Card CC) {
+    public boolean addCardInBattleField(Card CC, int turn) {
        if (isCardInBattleFieldFull()) return false;
        
        for (int i = 0; i < maxCardInBattleField; i++) {
            if (!cardInBattleField[i].getIsOccupied()) {
                cardInBattleField[i].flipIsOccupied();
+               cardInBattleField[i].setTurnWhenSummon(turn);
                cardInBattleField[i].setTextTo("CHARACTER (ATTACK)");
                cardInBattleField[i].setCard(CC);
                numOfCardInBattleField++;

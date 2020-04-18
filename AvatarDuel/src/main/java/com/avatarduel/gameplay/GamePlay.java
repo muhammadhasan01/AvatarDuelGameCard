@@ -17,7 +17,7 @@ import com.avatarduel.model.Skill;
 import com.avatarduel.player.Player;
 import javafx.util.Pair;
 
-/**
+/** 
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -201,7 +201,7 @@ public class GamePlay {
                     isSuccess = true;
                 } 
             } else if (card instanceof Character) {
-                if (currentCardPlayer.getCardInBattleField().addCardInBattleField(card)) {
+                if (currentCardPlayer.getCardInBattleField().addCardInBattleField(card, turnPhase)) {
                     currentText.setStatusTextTo("Character Card successfully summoned!");
                     isSuccess = true;
                 }
@@ -323,13 +323,19 @@ public class GamePlay {
                     currentText.setStatusTextTo("Cannot use card to attack when card is in defense position");
                     return;
                 }
+                
+                if (turnPhase - CC.getTurnWhenSummon() <= 1) {
+                    currentText.setStatusTextTo("Character " + cardName + " cannot attack yet");
+                    return;
+                }
+                
                 if (CC.getIsAttacked()) {
-                    currentText.setStatusTextTo("Card has already attacked");
+                    currentText.setStatusTextTo("Character " + cardName + " has already attacked");
                     return;
                 }
                 
                 // Use Direct Attack if possible
-                if (otherCardPlayer.getCardInBattleField().isCardInBattleFieldEmpty() && this.turn == ord && turnPhase > 7) {
+                if (otherCardPlayer.getCardInBattleField().isCardInBattleFieldEmpty() && this.turn == ord) {
                     int currentAttack = CC.getCard().getAttack();
                     int otherHP = otherPlayer.getHealth();
                     otherHP = Math.max(0, otherHP - currentAttack);

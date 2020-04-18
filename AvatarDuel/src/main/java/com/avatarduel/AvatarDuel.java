@@ -7,6 +7,10 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
+/** Main Class to Launch Avatar Duel
+ * 
+ * @author Muhammad Hasan - 13518012
+ */
 public class AvatarDuel extends Application {
   
 

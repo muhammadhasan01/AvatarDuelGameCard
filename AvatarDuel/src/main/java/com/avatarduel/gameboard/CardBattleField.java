@@ -17,12 +17,14 @@ public class CardBattleField extends CardBoard {
     private boolean isAttacking;
     private boolean isAttacked;
     private List<CardSkillField> cardAttached;
+    private int turnWhenSummon;
     
     public CardBattleField() {
         super();
         this.isAttacking = true;
         this.isAttacked = false;
         this.cardAttached = new ArrayList<>();
+        this.turnWhenSummon = 0;
     }
     
     public boolean getIsAttacking() {
@@ -35,6 +37,10 @@ public class CardBattleField extends CardBoard {
     
     public List<CardSkillField> getCardAttached() {
         return this.cardAttached;
+    }
+    
+    public int getTurnWhenSummon() {
+        return this.turnWhenSummon;
     }
     
     public void flipIsAttacking() {
@@ -52,6 +58,10 @@ public class CardBattleField extends CardBoard {
     
     public void resetIsAttacked() {
         this.isAttacked = false;
+    }
+    
+    public void setTurnWhenSummon(int turn) {
+        this.turnWhenSummon = turn;
     }
     
     public void resetCardBattleField() {
