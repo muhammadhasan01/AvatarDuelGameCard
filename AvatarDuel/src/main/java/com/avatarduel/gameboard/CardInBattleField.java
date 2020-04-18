@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
 import javafx.scene.text.Text;
 
-/**
+/** Class containing cards in battle field
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -33,6 +28,12 @@ public class CardInBattleField {
         return (numOfCardInBattleField == maxCardInBattleField);
     }
     
+    /**
+     * Add card in battle field also set the card to the turn when it is added (if successful)
+     * @param CC Card that is added
+     * @param turn The turn when it is added
+     * @return true if successful, false if not
+     */
     public boolean addCardInBattleField(Card CC, int turn) {
        if (isCardInBattleFieldFull()) return false;
        
@@ -81,6 +82,10 @@ public class CardInBattleField {
         }
     }
     
+    /**
+     * Link text card to a array of text preferably FXML Texts
+     * @param text Array of text references
+     */
     public void setTextCardInBattleField(Text[] text) {
         for (int i = 0; i < text.length; i++) {
             this.cardInBattleField[i].setRefText(text[i]);

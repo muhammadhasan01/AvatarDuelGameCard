@@ -1,18 +1,10 @@
 package com.avatarduel.gameboard;
 
 
-import com.avatarduel.gameboard.CardSkillField;
 import com.avatarduel.model.Card;
-import java.io.IOException;
 import javafx.scene.text.Text;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
+/** Class containing cards in skill field
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -76,6 +68,10 @@ public class CardInSkillField {
         }
     }
     
+    /**
+     * Link text card to a array of text preferably FXML Texts
+     * @param text Array of text references
+     */
     public void setTextCardInSkillField(Text[] text) {
         for (int i = 0; i < text.length; i++) {
             this.cardInSkillField[i].setRefText(text[i]);

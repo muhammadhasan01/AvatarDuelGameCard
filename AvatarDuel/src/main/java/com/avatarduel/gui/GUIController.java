@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gui;
 
 import com.avatarduel.gameplay.GamePlay;
@@ -24,7 +19,7 @@ import javafx.scene.text.Text;
 /**
  * FXML Controller class
  *
- * @author USER
+ * @author K03 - Group 04
  */
 public class GUIController implements Initializable {
     private final int numOfPlayer = 2;
@@ -713,6 +708,9 @@ public class GUIController implements Initializable {
         }
     }
     
+    /**
+     * Method to setup necessary adjustments when game is started
+     */
     private void startGame() {
         for (int i = 1; i <= numOfPlayer; i++) {
             for (int j = 1; j <= 8; j++) {

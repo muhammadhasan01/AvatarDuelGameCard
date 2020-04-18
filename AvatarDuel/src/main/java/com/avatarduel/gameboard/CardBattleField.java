@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
+/** Class to handle card in Battle Field 
+ * 
  * @author Muhammad Hasan - 13518012
  */
 public class CardBattleField extends CardBoard {
@@ -70,6 +65,10 @@ public class CardBattleField extends CardBoard {
         this.isAttacked = false;
     }
     
+    /** Adds a skill card to attach to this card battle field
+     * 
+     * @param CC Card that will be attached 
+     */
     public void addCardAttached(CardSkillField CC) {
         Card card = this.getCard();
         Card skill = CC.getCard();
@@ -82,6 +81,10 @@ public class CardBattleField extends CardBoard {
         this.cardAttached.add(CC);
     }
     
+    /** Remove a specific card that is attached to this card battle field
+     * 
+     * @param CC Card that will be removed from attachment
+     */
     public void removeCardAttached(CardSkillField CC) {
         for (int i = 0; i < this.cardAttached.size(); i++) {
             if (this.cardAttached.get(i) == CC) {
@@ -99,6 +102,9 @@ public class CardBattleField extends CardBoard {
         }
     }
     
+    /**
+     * Method to reset card battle field and destroy every card skill that is attached to it
+     */
     public void setToDead() {
         this.resetCardBattleField();
         for (CardSkillField CC : this.cardAttached) {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameplay;
 
 import com.avatarduel.gameboard.CardBattleField;
@@ -17,7 +12,7 @@ import com.avatarduel.model.Skill;
 import com.avatarduel.player.Player;
 import javafx.util.Pair;
 
-/** 
+/** Class to handle gameplay such as method for battling, game over, clicking, and hovering
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -60,6 +55,9 @@ public class GamePlay {
         return this.players[ord].getCardPlayer().getCardBattleFieldAt(pos);
     }
     
+    /**
+     * Method to update cards every time it changes phase
+     */
     public void updatePhase() {
         this.selectedCard = new CardBoard();
         this.players[turn].setIsSummondLand(false);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameboard;
 
 import com.avatarduel.model.Card;
@@ -11,7 +6,7 @@ import com.avatarduel.model.Skill;
 import com.avatarduel.model.Character;
 import javafx.scene.text.Text;
 
-/**
+/** Class containing cards in hand
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -51,6 +46,9 @@ public class CardInHand {
         return cardInHand[pos];
     }
     
+    /**
+     * Close card so that it cannot be hovered
+     */
     public void closeCards() {
         for (int i = 0; i < maxCardInHand; i++) {
             this.cardInHand[i].flipIsClosed();
@@ -84,6 +82,10 @@ public class CardInHand {
         }
     }
     
+    /**
+     * Link text card to a array of text preferably FXML Texts
+     * @param text Array of text references
+     */
     public void setTextCardInHand(Text[] text) {
         for (int i = 0; i < text.length; i++) {
             this.cardInHand[i].setRefText(text[i]);

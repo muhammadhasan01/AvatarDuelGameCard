@@ -14,18 +14,27 @@ import javafx.scene.Parent;
 public class AvatarDuel extends Application {
   
 
-  @Override
-  public void start(Stage stage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/GUIAvatarDuel.fxml"));
-        
-    Scene scene = new Scene(root);
+    /** Method to start loading GUI and set scene
+     * 
+     * @param stage
+     * @throws Exception 
+     */
+    @Override
+    public void start(Stage stage) throws Exception {
+      Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/GUIAvatarDuel.fxml"));
 
-    stage.setTitle("Avatar Duel");
-    stage.setScene(scene);
-    stage.show();
-  }
+      Scene scene = new Scene(root);
 
-  public static void main(String[] args) {
-    launch();
-  }
+      stage.setTitle("Avatar Duel");
+      stage.setScene(scene);
+      stage.show();
+    }
+
+    /** Main Method to launch application
+     * 
+     * @param args 
+     */
+    public static void main(String[] args) {
+      launch();
+    }
 }

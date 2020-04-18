@@ -5,7 +5,7 @@
  */
 package com.avatarduel.model;
 
-/**
+/** Class to handle card character
  *
  * @author Muhammad Hasan - 13518012
  */

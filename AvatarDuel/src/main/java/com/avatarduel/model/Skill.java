@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.model;
 
-/**
+/** Class to handle card skill
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -26,16 +21,6 @@ public class Skill extends Card {
         this.Power = SS.getPower();
     }
 
-    /**
-     *
-     * @param name
-     * @param description
-     * @param imagePath
-     * @param element
-     * @param atk
-     * @param def
-     * @param pow
-     */
     public Skill(String name, String description, String imagePath, Element element, int atk, int def, int pow) {
         super(name, description, imagePath, element);
         this.Attack = atk;

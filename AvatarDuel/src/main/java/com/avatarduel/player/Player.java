@@ -17,7 +17,7 @@ import java.util.Random;
 import javafx.scene.text.Text;
 import javafx.util.Pair;
 
-/**
+/** Class to handle player attributes (health, power element, and it's deck)
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -131,6 +131,10 @@ public class Player {
         }
     }
     
+    /**
+     * Add Card to deck
+     * @param CC The card that will be added
+     */
     public void addCard(Card CC) {
         this.deck.add(CC);
     }

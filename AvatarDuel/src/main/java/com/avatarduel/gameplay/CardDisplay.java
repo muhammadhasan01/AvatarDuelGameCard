@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameplay;
 
 import com.avatarduel.model.Card;
@@ -11,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-/**
+/** Class to handle displaying card in GUI
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -38,7 +33,14 @@ public class CardDisplay {
         this.cardElement = new ImageView();
     }
     
-   
+    /** Method to link card with GUI
+     * 
+     * @param name Card Name
+     * @param desc Card Description
+     * @param attr Card Attribute 
+     * @param img Path Image for card
+     * @param elm Path Image element for card
+     */
     public void setCardDisplay(Text name, Text desc, Text attr, ImageView img, ImageView elm) {
         this.cardName = name;
         this.cardDescription = desc;

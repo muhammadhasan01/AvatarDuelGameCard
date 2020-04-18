@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameplay;
 
 import com.avatarduel.cards.CharacterCards;
@@ -18,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 import javafx.util.Pair;
 
-/**
+/** Class to handle player attributes, player cards, and it's text in GUI
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -65,6 +60,10 @@ public class GamePlayer {
         this.isSummonLand = bool;
     }
     
+    /**
+     * build deck with character : skill : land = 2 : 1 : 2
+     * @throws IOException 
+     */
     public void buildDeck() throws IOException {
         LandCards landCards = new LandCards();
         CharacterCards characterCards = new CharacterCards();
@@ -81,6 +80,10 @@ public class GamePlayer {
         this.player.buildDeck(CC, SS, LL);
     }
     
+    /**
+     * Add card to hand from deck
+     * If the card is empty, then this player will automatically lost
+     */
     public void addFromDeck() {
         List<Card> deckPlayer = this.player.getDeck();
         if (deckPlayer.isEmpty()) {
@@ -92,6 +95,9 @@ public class GamePlayer {
         this.player.setDeckTextTo(deckPlayer.size());
     }
     
+    /**
+     * Update the value of power elements at draw phase
+     */
     public void updatePower() {
         for (Element element : Element.values()) {
             int maxVal = this.player.getPower(element).getValue();

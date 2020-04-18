@@ -1,3 +1,6 @@
+/**
+ * Class to handle card land
+ */
 package com.avatarduel.model;
 
 public class Land extends Card {

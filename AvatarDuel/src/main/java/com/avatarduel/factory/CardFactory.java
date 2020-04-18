@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.factory;
 
 import com.avatarduel.model.Card;
@@ -11,7 +6,7 @@ import com.avatarduel.model.Skill;
 import com.avatarduel.model.Element;
 import com.avatarduel.model.Character;
 
-/**
+/** Factory Class for building cards
  *
  * @author Muhammad Hasan - 13518012
  */

@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.avatarduel.gameboard;
 
-/**
+/** Class to handle card in skill field
  *
  * @author Muhammad Hasan - 13518012
  */
@@ -29,6 +24,9 @@ public class CardSkillField extends CardBoard {
         this.cardAttached = CC;
     }
     
+    /**
+     * Method to remove this card to the card attached
+     */
     public void removeCardAttached() {
         this.cardAttached.removeCardAttached(this);
     }
