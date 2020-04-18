@@ -7,17 +7,16 @@
 | Muhammad Hasan            | 13518012 |
 | Fikra Hadi Ramadhan       | 13518036 |
 | Hafshy Yazid Albisthamy   | 13518051 |
-| Dimas Wahyu Langkawi      | 13518069 |
 | Radhinansyah Hemsa Ghaida | 13518087 |
 | Naufal Arfananda Ghifari  | 13518096 |
 
-Dalam **Tugas Besar II *Object-Oriented Programming* (IF2210)** kali ini, kelompok kami (Kelompok 04 - K03) telah membuat **Game Avatar Duel Cards**.
+Dalam **Tugas Besar II *Object-Oriented Programming* (IF2210)** kali ini, kelompok kami (Kelompok 04 - K03) telah membuat **Avatar Duel Game Card**.
 
-## Game Avatar Duel
+## Avatar Duel Game Card
 
 ![Tampilan_Game](/assets/images/tampilanGame.png)
 
-**Avatar Duel Game Card** adalah sebuah game kartu aplikasi yang dibuat dengan JavaFX. Game ini dapat dimainkan oleh dua orang, setiap orang memiliki kartu berisi 3 jenis yaitu kartu land, character, dan skill. Setiap kartu avatar duel ini memiliki fungsinya masing-masing, dan tentunya, isi dari kartu-kartu tersebut diambil berdasarkan *Avatar: The Last Airbender*. Tujuan utama dari game ini adalah mengalahkan pemain lawan dengan mengurangi *health point* lawan sampai 0 atau kurang.
+**Avatar Duel Game Card** adalah sebuah game kartu aplikasi yang dibuat dengan **JavaFX**. Game ini dapat dimainkan oleh dua orang, setiap orang memiliki kartu berisi 3 jenis yaitu kartu land, character, dan skill. Setiap kartu avatar duel ini memiliki fungsinya masing-masing, dan tentunya, isi dari kartu-kartu tersebut diambil berdasarkan *Avatar: The Last Airbender*. Tujuan utama dari game ini adalah mengalahkan pemain lawan dengan mengurangi *health point* lawan sampai 0 atau kurang.
 
 ## Struktur Kode
 
