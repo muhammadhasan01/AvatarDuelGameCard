@@ -593,7 +593,8 @@ public class GUIController implements Initializable {
         
         // Initialize Phases
         phases = new ArrayList<>();
-        phases.add(drawPhase); phases.add(mainPhase);
+        phases.add(drawPhase);
+        phases.add(mainPhase);
         phases.add(battlePhase);
         phases.add(endPhase);
         
@@ -714,7 +715,7 @@ public class GUIController implements Initializable {
     
     private void startGame() {
         for (int i = 1; i <= numOfPlayer; i++) {
-            for (int j = 0; j < 8; j++) {
+            for (int j = 1; j <= 8; j++) {
                 gamePlay.getGamePlayer(i).addFromDeck();
             }
         }

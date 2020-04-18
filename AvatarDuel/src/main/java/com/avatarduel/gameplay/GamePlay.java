@@ -49,22 +49,18 @@ public class GamePlay {
     }
     
     public CardHand getCardHandAt(int ord, int pos) {
-        if (ord != turn) return new CardHand();
         return this.players[ord].getCardPlayer().getCardHandAt(pos);
     }
     
     public CardSkillField getCardSkillFieldAt(int ord, int pos) {
-        if (ord != turn) return new CardSkillField();
         return this.players[ord].getCardPlayer().getCardSkillFieldAt(pos);
     }
     
     public CardBattleField getCardBattleFieldAt(int ord, int pos) {
-        if (ord != turn) return new CardBattleField();
         return this.players[ord].getCardPlayer().getCardBattleFieldAt(pos);
     }
     
     public void updatePhase() {
-        this.selectedCard.flipUnderLine();
         this.selectedCard = new CardBoard();
         this.players[turn].setIsSummondLand(false);
         for (int i = 0; i < numOfPlayer; i++) {
@@ -152,6 +148,11 @@ public class GamePlay {
         
         if (!CC.getIsOccupied()) return;
         
+        if (this.selectedCard.getText().isUnderline()) {
+            this.selectedCard.resetUnderLine();
+            this.selectedCard = new CardBoard();
+        }
+        
         Card card = CC.getCard();
         Element element = card.getElement();
         String elementName = element.name().toLowerCase();
@@ -177,21 +178,24 @@ public class GamePlay {
             
         } else {
             
-            
-            
             int curPower = card.getPower();
+            
+            if (selectedCard == CC) {
+                currentText.setStatusTextTo("Card " + card.getName() + " has been removed!");
+                CC.flipIsOccupied();
+                currentCardPlayer.getCardInHand().updateCardInHand();
+                selectedCard = new CardBoard();
+                return;
+            }
             
             if (curPower > currentVal) {
                 currentText.setStatusTextTo("Power " + elementName + " not enough");
+                selectedCard = CC;
                 return;
             }
             
             boolean isSuccess = false;
-            if (selectedCard == CC) {
-                currentText.setStatusTextTo("Card " + card.getName() + " has been removed!");
-                selectedCard = new CardBoard();
-                isSuccess = true;
-            } else if (card instanceof Skill) {
+            if (card instanceof Skill) {
                 if (currentCardPlayer.getCardInSkillField().addCardInSkillField(card)) {
                     currentText.setStatusTextTo("Skill Card successfully summoned!");
                     isSuccess = true;
@@ -204,6 +208,7 @@ public class GamePlay {
             }
             
             if (!isSuccess) {
+                selectedCard = CC;
                 currentText.setStatusTextTo("Failed to select card, Field is already full");
                 return;
             }
@@ -212,7 +217,6 @@ public class GamePlay {
             currentPlayer.setPower(element, new Pair<>(currentVal, maxVal));
             currentText.setPowerValue(element, currentVal, maxVal);
             
-            selectedCard = CC;
         }
         
         CC.flipIsOccupied();
@@ -236,6 +240,7 @@ public class GamePlay {
         CardPlayer currentCardPlayer = currentGamePlayer.getCardPlayer();
         
         CC = currentCardPlayer.getCardSkillFieldAt(pos);
+        String cardName = CC.getCard().getName();
         
         if (!CC.getIsOccupied()) return;
         
@@ -245,7 +250,8 @@ public class GamePlay {
             }
             CC.flipIsOccupied();
             currentCardPlayer.getCardInSkillField().updateCardInSkillField();
-            currentText.setStatusTextTo("Card skill " + CC.getCard().getName() + " has been removed");
+            currentText.setStatusTextTo("Card skill " + cardName + " has been removed");
+            this.selectedCard = new CardBoard();
             return;
         }
         
@@ -256,7 +262,7 @@ public class GamePlay {
             return;
         }
         
-        currentText.setStatusTextTo("Card skill " + CC.getCard().getName() + " has been selected!");
+        currentText.setStatusTextTo("Card skill " + cardName + " has been selected!");
         
         CC.flipUnderLine();
         this.selectedCard = CC;
@@ -284,11 +290,14 @@ public class GamePlay {
         
         if (turnPhase % 4 == 1) {
             
-            if (this.turn != ord) return;
-            
             if (this.isSelectedCardEmpty()) {
-                currentText.setStatusTextTo("Character " + cardName + " has changed position");
+                
+                if (this.turn != ord) return;
+                
                 CC.flipIsAttacking();
+                
+                currentText.setStatusTextTo("Character " + cardName + " has changed to "
+                 + (CC.getIsAttacking() ? "attack" : "defense") + " position");
                 
             } else if (this.selectedCard instanceof CardSkillField) {
                 CardSkillField SS = (CardSkillField) this.selectedCard;
@@ -311,7 +320,7 @@ public class GamePlay {
             if (this.isSelectedCardEmpty()) {
                 if (this.turn != ord) return;
                 if (!CC.getIsAttacking()) {
-                    currentText.setStatusTextTo("Cannot select card that is in defense mode");
+                    currentText.setStatusTextTo("Cannot use card to attack when card is in defense position");
                     return;
                 }
                 if (CC.getIsAttacked()) {
@@ -327,6 +336,11 @@ public class GamePlay {
                     
                     otherText.setStatusTextTo("Player " + String.valueOf(2 - this.turn) +
                             " received " + String.valueOf(currentAttack) + " damage");
+                    
+                    otherPlayer.setHealth(otherHP);
+                    otherPlayer.setHealthTextTo(String.valueOf(otherHP));
+                    
+                    CC.flipIsAttacked();
                     
                     if (otherHP == 0) {
                         otherGamePlayer.flipIsLost();
@@ -346,12 +360,11 @@ public class GamePlay {
                 if (this.selectedCard == CC) {
                     CC.flipUnderLine();
                     currentText.setStatusTextTo("Character " + cardName + " has been unselected!");
+                    this.selectedCard = new CardBoard();
                     return;
                 }
                 
                 CardBattleField BB = (CardBattleField) this.selectedCard;
-                BB.flipIsAttacked();
-                BB.flipUnderLine();
                 
                 if (CC.getIsAttacking()) {
                     int currentAttack = CC.getCard().getAttack();
@@ -363,7 +376,7 @@ public class GamePlay {
                         
                         int dif = currentAttack - selectedAttack;
                         
-                        currentText.setStatusTextTo("Player " + String.valueOf(this.turn + 1) + " Has received " + dif + " damage!");
+                        currentText.setStatusTextTo("Player " + String.valueOf(ord + 1) + " Has received " + (-dif) + " damage!");
                         
                         int curHealth = currentPlayer.getHealth();
                         curHealth = Math.max(0, curHealth - dif);
@@ -374,6 +387,7 @@ public class GamePlay {
                             currentGamePlayer.flipIsLost();
                             gameOver();
                         }
+                        
                     } else {
                         currentText.setStatusTextTo("Attack value is not enough to attack card " + cardName);
                         return;
@@ -386,12 +400,15 @@ public class GamePlay {
                     if (selectedAttack > thisDefend) {
                         currentText.setStatusTextTo("Card " + cardName + " has been destroyed!");
                         CC.setToDead();
+                        
                     } else {
                         currentText.setStatusTextTo("Attack value is not enough to attack card " + cardName);
                         return;
                     }
                 }
                 
+                BB.flipIsAttacked();
+                this.selectedCard.flipUnderLine();
                 this.selectedCard = new CardBoard();
             }
         }

@@ -83,14 +83,13 @@ public class GamePlayer {
     
     public void addFromDeck() {
         List<Card> deckPlayer = this.player.getDeck();
-        if (deckPlayer.size() > 0) {
-            Card CC = deckPlayer.remove(0);
-            this.getCardPlayer().getCardInHand().addCardInHand(CC);
-            this.player.setDeckTextTo(deckPlayer.size());
-        }
         if (deckPlayer.isEmpty()) {
             this.flipIsLost();
+            return;
         }
+        Card CC = deckPlayer.remove(0);
+        this.getCardPlayer().getCardInHand().addCardInHand(CC);
+        this.player.setDeckTextTo(deckPlayer.size());
     }
     
     public void updatePower() {

@@ -59,8 +59,10 @@ public class CardInHand {
     
     public void updateCardInHand() {
         for (int i = 0; i < maxCardInHand; i++) {
-            Card card = this.cardInHand[i].getCard();
-            if (this.cardInHand[i].getIsOccupied() && !this.cardInHand[i].getIsClosed()) {
+            CardHand CC = this.cardInHand[i];
+            Card card = CC.getCard();
+            CC.resetUnderLine();
+            if (CC.getIsOccupied() && !CC.getIsClosed()) {
                 if (card instanceof Land) {
                     this.cardInHand[i].setTextTo("LAND");
                 } else if (card instanceof Skill) {
@@ -69,7 +71,7 @@ public class CardInHand {
                     this.cardInHand[i].setTextTo("CHARACTER");
                 }
             } else {
-                this.cardInHand[i].setTextTo("");
+                CC.setTextTo("");
             }
         }
     }
@@ -77,10 +79,8 @@ public class CardInHand {
     public void resetCardInHand() {
         for (int i = 0; i < maxCardInHand; i++) {
             CardHand CC = this.cardInHand[i];
-            CC.setTextTo("");
-            if (CC.getIsOccupied()) {
-                CC.flipIsOccupied();
-            }
+            CC.resetUnderLine();
+            CC.resetCardHand();
         }
     }
     

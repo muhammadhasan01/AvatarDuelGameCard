@@ -59,12 +59,15 @@ public class CardInBattleField {
     public void updateCardInBattleField() {
         numOfCardInBattleField = 0;
         for (int i = 0; i < maxCardInBattleField; i++) {
-            if (cardInBattleField[i].getIsOccupied()) {
-                String position = (cardInBattleField[i].getIsAttacking() ? "(ATTACK)" : "(DEFENSE)");
-                cardInBattleField[i].setTextTo("CHARACTER " + position);
+            CardBattleField CC = this.cardInBattleField[i];
+            CC.resetIsAttacked();
+            CC.resetUnderLine();
+            if (CC.getIsOccupied()) {
+                String position = (CC.getIsAttacking() ? "(ATTACK)" : "(DEFENSE)");
+                CC.setTextTo("CHARACTER " + position);
                 numOfCardInBattleField++;
             } else {
-                cardInBattleField[i].setTextTo("");
+                CC.setTextTo("");
             }
         }
     }
@@ -72,10 +75,8 @@ public class CardInBattleField {
     public void resetCardInBattleField() {
         for (int i = 0; i < maxCardInBattleField; i++) {
             CardBattleField CC = this.cardInBattleField[i];
-            CC.setTextTo("");
-            if (CC.getIsOccupied()) {
-                CC.flipIsOccupied();
-            }
+            CC.resetUnderLine();
+            CC.resetCardBattleField();
         }
     }
     

@@ -38,7 +38,7 @@ public class GameText {
     
     public void setPowerText(Text air, Text water, Text fire, Text earth, Text energy) {
         this.powerAir = air;
-        this.powerEarth = water;
+        this.powerWater = water;
         this.powerFire = fire;
         this.powerEarth = earth;
         this.powerEnergy = energy;

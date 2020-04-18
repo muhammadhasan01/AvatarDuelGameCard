@@ -58,10 +58,12 @@ public class CardInSkillField {
     
     public void updateCardInSkillField() {
         for (int i = 0; i < maxCardInSkillField; i++) {
-            if (cardInSkillField[i].getIsOccupied()) {
-                cardInSkillField[i].setTextTo("STATUS");
+            CardSkillField CC = this.cardInSkillField[i];
+            CC.resetUnderLine();
+            if (CC.getIsOccupied()) {
+                CC.setTextTo("SKILL");
             } else {
-                cardInSkillField[i].setTextTo("");
+                CC.setTextTo("");
             }
         }
     }
@@ -69,10 +71,8 @@ public class CardInSkillField {
     public void resetCardInSkillField() {
         for (int i = 0; i < maxCardInSkillField; i++) {
             CardSkillField CC = this.cardInSkillField[i];
-            CC.setTextTo("");
-            if (CC.getIsOccupied()) {
-                CC.flipIsOccupied();
-            }
+            CC.resetUnderLine();
+            CC.resetCardSkillField();
         }
     }
     

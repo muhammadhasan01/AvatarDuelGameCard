@@ -42,12 +42,16 @@ public class CardBattleField extends CardBoard {
         if (this.isAttacking) {
             this.setTextTo("CHARACTER (ATTACK)");
         } else {
-            this.setTextTo("CHARACTER (DEFEND)");
+            this.setTextTo("CHARACTER (DEFENSE)");
         }
     }
     
     public void flipIsAttacked() {
         this.isAttacked = !(this.isAttacked);
+    }
+    
+    public void resetIsAttacked() {
+        this.isAttacked = false;
     }
     
     public void resetCardBattleField() {
@@ -58,9 +62,13 @@ public class CardBattleField extends CardBoard {
     
     public void addCardAttached(CardSkillField CC) {
         Card card = this.getCard();
-        Card skill = this.getCard();
-        card.setAttack(card.getAttack() + skill.getAttack());
-        card.setDefend(card.getDefend() + skill.getDefend());
+        Card skill = CC.getCard();
+        int currentAttack = card.getAttack();
+        int currentDefend = card.getDefend();
+        int skillAttack = skill.getAttack();
+        int skillDefend = skill.getDefend();
+        card.setAttack(currentAttack + skillAttack);
+        card.setDefend(currentDefend + skillDefend);
         this.cardAttached.add(CC);
     }
     
@@ -68,9 +76,13 @@ public class CardBattleField extends CardBoard {
         for (int i = 0; i < this.cardAttached.size(); i++) {
             if (this.cardAttached.get(i) == CC) {
                 Card card = this.getCard();
-                Card skill = this.getCard();
-                card.setAttack(card.getAttack() - skill.getAttack());
-                card.setDefend(card.getDefend() - skill.getDefend());
+                Card skill = CC.getCard();
+                int currentAttack = card.getAttack();
+                int currentDefend = card.getDefend();
+                int skillAttack = skill.getAttack();
+                int skillDefend = skill.getDefend();
+                card.setAttack(currentAttack - skillAttack);
+                card.setDefend(currentDefend - skillDefend);
                 this.cardAttached.remove(i);
                 break;
             }

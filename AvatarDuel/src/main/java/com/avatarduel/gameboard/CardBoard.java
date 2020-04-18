@@ -71,4 +71,8 @@ public class CardBoard {
     public void flipUnderLine() {
         this.text.setUnderline(!this.text.isUnderline());
     }
+    
+    public void resetUnderLine() {
+        this.text.setUnderline(false);
+    }
 }

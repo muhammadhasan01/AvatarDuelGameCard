@@ -140,7 +140,7 @@ public class Player {
     } 
     
     public void setHealthTextTo(String text) {
-        this.healthText.setText(text);
+        this.healthText.setText(text + "/" + String.valueOf(healthMax));
     }
     
     public void setDeckText(Text text) {
@@ -148,6 +148,6 @@ public class Player {
     }
     
     public void setDeckTextTo(int num) {
-        this.deckText.setText(String.valueOf(num) + "/60");
+        this.deckText.setText(String.valueOf(num) + "/" + String.valueOf(deckMax));
     }
 }
