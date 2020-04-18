@@ -1,0 +1,9 @@
+com.avatarduel
+com.avatarduel.cards
+com.avatarduel.factory
+com.avatarduel.gameboard
+com.avatarduel.gameplay
+com.avatarduel.gui
+com.avatarduel.model
+com.avatarduel.player
+com.avatarduel.util
