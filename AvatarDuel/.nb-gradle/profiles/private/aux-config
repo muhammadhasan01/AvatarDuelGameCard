@@ -7,16 +7,14 @@
       <group>
         <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/resources/com/avatarduel/card/data/skill_aura.csv</file>
         <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/resources/com/avatarduel/card/data/land.csv</file>
+        <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/java/com/avatarduel/gui/GUIController.java</file>
         <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/java/com/avatarduel/gameplay/GamePlay.java</file>
       </group>
     </open-files>
     <editor-bookmarks lastBookmarkId="0" xmlns="http://www.netbeans.org/ns/editor-bookmarks/2"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
       <group>
-        <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/resources/com/avatarduel/card/data/skill_aura.csv</file>
-        <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/resources/com/avatarduel/card/data/land.csv</file>
-        <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/java/com/avatarduel/gui/GUIController.java</file>
-        <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/java/com/avatarduel/gameplay/GamePlay.java</file>
+        <file>file:/C:/Users/USER/github/tugasBesarOOP2/AvatarDuel/src/main/java/com/avatarduel/AvatarDuel.java</file>
       </group>
     </open-files>
   </auxiliary>

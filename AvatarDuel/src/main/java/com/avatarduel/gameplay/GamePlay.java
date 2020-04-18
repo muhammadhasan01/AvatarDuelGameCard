@@ -333,7 +333,7 @@ public class GamePlay {
                 }
                 
                 // Use Direct Attack if possible
-                if (otherCardPlayer.getCardInBattleField().isCardInBattleFieldEmpty() && this.turn == ord) {
+                if (otherCardPlayer.getCardInBattleField().isCardInBattleFieldEmpty()) {
                     int currentAttack = CC.getCard().getAttack();
                     int otherHP = otherPlayer.getHealth();
                     otherHP = Math.max(0, otherHP - currentAttack);
@@ -378,9 +378,9 @@ public class GamePlay {
                         
                         CC.setToDead();
                         
-                        int dif = currentAttack - selectedAttack;
+                        int dif = selectedAttack - currentAttack;
                         
-                        currentText.setStatusTextTo("Player " + String.valueOf(ord + 1) + " Has received " + (-dif) + " damage!");
+                        currentText.setStatusTextTo("Player " + String.valueOf(ord + 1) + " Has received " + dif + " damage!");
                         
                         int curHealth = currentPlayer.getHealth();
                         curHealth = Math.max(0, curHealth - dif);
@@ -411,6 +411,7 @@ public class GamePlay {
                     }
                 }
                 
+                currentCardPlayer.getCardInBattleField().decreaseNumOfCardInBattleField();
                 BB.flipIsAttacked();
                 this.selectedCard.flipUnderLine();
                 this.selectedCard = new CardBoard();

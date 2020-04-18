@@ -20,6 +20,10 @@ public class CardInBattleField {
         numOfCardInBattleField = 0;
     }
     
+    public void decreaseNumOfCardInBattleField() {
+        this.numOfCardInBattleField--;
+    }
+    
     public boolean isCardInBattleFieldEmpty() {
         return (numOfCardInBattleField == 0);
     }
