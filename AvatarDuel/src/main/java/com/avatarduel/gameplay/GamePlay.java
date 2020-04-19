@@ -255,11 +255,6 @@ public class GamePlay {
         
         if (!this.isSelectedCardEmpty()) return;
         
-        if (CC.isCardAttached()) {
-            currentText.setStatusTextTo("Card skill has already been used");
-            return;
-        }
-        
         currentText.setStatusTextTo("Card skill " + cardName + " has been selected!");
         
         CC.flipUnderLine();
@@ -299,6 +294,11 @@ public class GamePlay {
                 
             } else if (this.selectedCard instanceof CardSkillField) {
                 CardSkillField SS = (CardSkillField) this.selectedCard;
+                
+                if (SS.isCardAttached()) {
+                    currentText.setStatusTextTo("Card skill has already been used!");
+                    return;
+                }
                 
                 SS.setCardAttached(CC);
                 SS.flipUnderLine();
@@ -393,7 +393,7 @@ public class GamePlay {
                         }
                         
                     } else {
-                        currentText.setStatusTextTo("Attack value is not enough to attack card " + cardName);
+                        otherText.setStatusTextTo("Attack value is not enough to attack card " + cardName);
                         return;
                     }
                 } else {
@@ -406,7 +406,7 @@ public class GamePlay {
                         CC.setToDead();
                         
                     } else {
-                        currentText.setStatusTextTo("Attack value is not enough to attack card " + cardName);
+                        otherText.setStatusTextTo("Attack value is not enough to attack card " + cardName);
                         return;
                     }
                 }
