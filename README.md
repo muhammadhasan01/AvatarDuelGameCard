@@ -1,18 +1,6 @@
-# Tugas Besar Pemrograman Berorientasi Objek II (IF2210) - Kelompok 04 - K03
+# Avatar Duel Game Card
 
-### Anggota Kelompok
-
-| Nama Anggota              | NIM      |
-|---------------------------|----------|
-| Muhammad Hasan            | 13518012 |
-| Fikra Hadi Ramadhan       | 13518036 |
-| Hafshy Yazid Albisthamy   | 13518051 |
-| Radhinansyah Hemsa Ghaida | 13518087 |
-| Naufal Arfananda Ghifari  | 13518096 |
-
-Dalam **Tugas Besar II *Object-Oriented Programming* (IF2210)** kali ini, kelompok kami (Kelompok 04 - K03) telah membuat **Avatar Duel Game Card**.
-
-## Avatar Duel Game Card
+## Preview
 
 ![Tampilan_Game](/assets/images/tampilanGame.png)
 
@@ -31,3 +19,13 @@ Berikut adalah tata cara dalam menjalankan game ini:
 2. Buka folder AvatarDuel, lalu buka terminal favorit anda disana (Command Prompt misalnya).
 3. Kemudian ketik `./gradlew run` pada terminal
 4. Game akan terbuka dan siap untuk dimainkan!
+
+### Anggota Kelompok
+
+| Nama Anggota              | NIM      |
+|---------------------------|----------|
+| Muhammad Hasan            | 13518012 |
+| Fikra Hadi Ramadhan       | 13518036 |
+| Hafshy Yazid Albisthamy   | 13518051 |
+| Radhinansyah Hemsa Ghaida | 13518087 |
+| Naufal Arfananda Ghifari  | 13518096 |
